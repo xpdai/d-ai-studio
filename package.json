@@ -1,0 +1,8 @@
+{
+  "name": "dai-digital-product-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
