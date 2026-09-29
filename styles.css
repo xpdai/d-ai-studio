@@ -1375,6 +1375,20 @@ section {
   background: white;
 }
 
+.line-contact-button {
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  background: #06c755;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.line-contact-button:hover {
+  background: #05ad4b;
+  transform: translateY(-2px);
+}
+
 .copy-icon {
   font: 700 19px/1 var(--mono);
 }

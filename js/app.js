@@ -1,7 +1,7 @@
 (function initializeSite() {
   'use strict';
 
-  const CONTACT_URL = '';
+  const CONTACT_URL = 'https://line.me/R/ti/p/@373owkyu';
   const tools = globalThis.BriefTools;
 
   if (!tools) return;
@@ -52,7 +52,7 @@
       await tools.copyText(output.value, navigator.clipboard);
       copyButton.classList.add('is-copied');
       copyButton.querySelector('span').textContent = '已複製需求草稿';
-      copyStatus.textContent = '已複製，可以貼到你習慣的聯絡方式開始洽談。';
+      copyStatus.textContent = '已複製，開啟 LINE 後貼上需求草稿即可開始洽談。';
       copyTimer = window.setTimeout(() => {
         copyButton.classList.remove('is-copied');
         copyButton.querySelector('span').textContent = '複製需求草稿';

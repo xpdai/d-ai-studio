@@ -20,7 +20,7 @@ npm test
 
 ## 更換聯絡方式
 
-目前所有主要 CTA 都導向頁內的需求草稿產生器。取得正式聯絡網址後，修改 `js/app.js` 頂端的 `CONTACT_URL`：
+目前主要 CTA 與需求草稿旁的聯絡按鈕都連到 D.AI 的 LINE 官方帳號。需要更換聯絡網址時，修改 `js/app.js` 頂端的 `CONTACT_URL`：
 
 ```js
 const CONTACT_URL = 'https://你的聯絡網址';
