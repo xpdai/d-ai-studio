@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
-  <title id="title">D.AI 標誌</title>
-  <desc id="desc">以工程圖紙切角為輪廓的字母 D 與藍色句點</desc>
-  <path fill="#14243A" d="M10 3h25l10 10v25a7 7 0 0 1-7 7H10a7 7 0 0 1-7-7V10a7 7 0 0 1 7-7Z"/>
-  <path fill="#243957" d="M35 3v7a3 3 0 0 0 3 3h7L35 3Z"/>
-  <path fill="#FFFFFF" d="M10 10h11.5C31 10 37 15.4 37 24s-6 14-15.5 14H10V10Zm8 7v14h3.4c4.7 0 7.6-2.6 7.6-7s-2.9-7-7.6-7H18Z"/>
-  <circle cx="38" cy="37.5" r="3.5" fill="#3157F6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">D.AI 品牌標誌</title>
+  <desc id="desc">墨藍工程圖紙切角中，以白色幾何字母 D 和藍色流程節點組成的標誌。</desc>
+  <path fill="#14243A" d="M22 4h38l32 32v38a18 18 0 0 1-18 18H22A18 18 0 0 1 4 74V22A18 18 0 0 1 22 4Z"/>
+  <path fill="#243957" d="M60 4v17a15 15 0 0 0 15 15h17L60 4Z"/>
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M24 22h22c18 0 30 12 30 31S64 84 46 84H24V22Zm14 13v36h8c10 0 16-6 16-18s-6-18-16-18h-8Z"/>
+  <path d="M42 57h7l7-7h3" fill="none" stroke="#3157F6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+  <circle cx="61" cy="50" r="3.2" fill="#3157F6"/>
 </svg>

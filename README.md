@@ -30,7 +30,8 @@ const CONTACT_URL = 'https://你的聯絡網址';
 
 ## 品牌資產
 
-- Logo：`assets/logo-mark.svg`
+- Logo 圖形：`assets/logo-mark.svg` / `assets/logo-mark.png`
+- 橫式字標：`assets/logo-lockup.svg` / `assets/logo-lockup.png`
 - 品牌名稱、概念與色票：`docs/brand-guide.md`
 - 網站設計規格：`docs/superpowers/specs/2026-08-13-freelance-engineer-site-design.md`
 
