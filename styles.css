@@ -1800,3 +1800,14 @@ section {
 
 .industry-gallery{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}.industry-gallery>h3{font-size:19px;margin:0 0 20px}.industry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.industry-card{display:block;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}.industry-card img{display:block;width:100%;height:180px;object-fit:cover;object-position:center;border-radius:0;border:0}.industry-card>div{padding:18px}.industry-card span{color:var(--ink-soft);font-size:12px}.industry-card h4{margin:6px 0 12px;font-size:18px;line-height:1.6}.industry-card b{font-size:13px;color:var(--blue)}.app-screen-gallery{margin-top:40px}.app-screen-gallery h4{font-size:19px;line-height:1.6;margin:0 0 14px}.image-expand{display:block}.image-expand:focus-visible{outline-offset:4px}.zoom-note{display:block;color:var(--blue);margin-top:6px;font-size:12px}.product-requirements{margin-top:32px;padding:28px;background:#edf1ff;border-radius:16px}.product-requirements ul{margin:0;padding-left:22px;display:grid;gap:14px}.product-requirements li{line-height:1.9}.product-requirements p{margin:20px 0 8px}.product-requirements b{color:var(--ink)}
 @media(max-width:760px){.industry-grid{grid-template-columns:1fr;gap:20px}.industry-card{display:grid;grid-template-columns:44% minmax(0,1fr)}.industry-card img{height:100%;min-height:145px;object-fit:cover}.industry-card>div{padding:16px}.industry-card h4{font-size:16px;margin:6px 0 10px}.industry-card span,.industry-card b{font-size:11px}.product-requirements{padding:22px}.app-screen-gallery h4{font-size:18px}}
+
+/* Compact phone previews; preserve full-size image links and desktop artwork. */
+@media(max-width:600px){
+ .hero-preview>a>img{height:160px;object-fit:contain;object-position:center;background:#f1f4f6}
+ .work-card>img{height:180px;object-fit:contain;object-position:center;background:#f1f4f6}
+ .industry-card{align-items:center;min-height:130px}
+ .industry-card img{height:120px;min-height:0;object-fit:contain;object-position:center;background:#f1f4f6}
+ .showcase #website>a>img{height:clamp(150px,48vw,200px);max-height:200px;object-fit:contain;background:#f1f4f6}
+ .app-figure img{height:clamp(150px,46vw,190px);max-height:190px;object-fit:contain;background:#f1f4f6}
+ .app-figure{margin:22px 0}
+}
