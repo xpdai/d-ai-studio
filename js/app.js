@@ -1,68 +1,11 @@
 (function initializeSite() {
   'use strict';
-
   const CONTACT_URL = 'https://line.me/R/ti/p/@373owkyu';
-  const tools = globalThis.BriefTools;
-
-  if (!tools) return;
-
   const header = document.querySelector('[data-header]');
-  const form = document.querySelector('#brief-form');
-  const output = document.querySelector('#brief-output');
-  const copyButton = document.querySelector('#copy-brief');
-  const copyStatus = document.querySelector('#copy-status');
-  const fields = ['project', 'problem', 'existing', 'timeline'].map((id) =>
-    document.getElementById(id)
-  );
-
   document.querySelectorAll('[data-contact-link]').forEach((link) => {
-    const href = tools.resolveContactHref(CONTACT_URL);
-    link.setAttribute('href', href);
-    if (href.startsWith('http')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noreferrer');
-    }
-  });
-
-  const renderBrief = () => {
-    if (!output) return;
-    const values = Object.fromEntries(fields.map((field) => [field.id, field.value]));
-    output.value = tools.formatBrief(values);
-  };
-
-  form?.addEventListener('input', renderBrief);
-  renderBrief();
-
-  document.querySelectorAll('[data-example-project]').forEach((button) => {
-    button.addEventListener('click', () => {
-      document.getElementById('project').value = button.dataset.exampleProject;
-      document.getElementById('problem').value = button.dataset.exampleProblem;
-      renderBrief();
-      document.getElementById('existing').focus();
-      document.querySelectorAll('[data-example-project]').forEach((chip) => {
-        chip.classList.toggle('is-selected', chip === button);
-      });
-    });
-  });
-
-  let copyTimer;
-  copyButton?.addEventListener('click', async () => {
-    window.clearTimeout(copyTimer);
-    try {
-      await tools.copyText(output.value, navigator.clipboard);
-      copyButton.classList.add('is-copied');
-      copyButton.querySelector('span').textContent = '已複製需求草稿';
-      copyStatus.textContent = '已複製。請開啟 LINE、貼上並自行按送出；本站尚未送出需求。';
-      copyTimer = window.setTimeout(() => {
-        copyButton.classList.remove('is-copied');
-        copyButton.querySelector('span').textContent = '複製需求草稿';
-      }, 2400);
-    } catch (error) {
-      output.focus();
-      output.select();
-      output.setSelectionRange(0, output.value.length);
-      copyStatus.textContent = '瀏覽器無法自動複製，已替你選取文字，請手動複製。';
-    }
+    link.href = CONTACT_URL;
+    link.target = '_blank';
+    link.rel = 'noreferrer noopener';
   });
 
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);

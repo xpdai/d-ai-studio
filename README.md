@@ -1,38 +1,13 @@
-# D.AI 接案形象網站
+# D.AI 形象網站與 AI 客服
 
-一頁式靜態形象網站，完整介紹品牌網站、詢價流程與 FAQ 客服流程。訪客可以從常見情境開始，填寫四個簡短欄位，產生一段可直接複製的洽談草稿。
+對外主打形象網站與 AI 客服方案，保留 Web App、管理系統、自動化、API 與其他 AI 整合作為次級服務。展示頁使用虛構品牌與本機固定 FAQ 紀錄。沒有網站表單、需求草稿或獨立詢價流程商品；訪客透過既有 LINE 聯絡入口洽談。網站不會自動傳送訊息。
 
 ## 本機預覽
 
-```bash
-python3 -m http.server 4173 --bind 127.0.0.1
-```
+`python3 -m http.server 4173 --bind 127.0.0.1`，開啟 http://127.0.0.1:4173/，Ctrl+C 停止。
 
-開啟 `http://127.0.0.1:4173/`。
+## 聯絡與展示
 
-## 執行測試
+LINE 目的地在 js/app.js。首頁與 mvp-showcase.html 同步兩項定位。客服目前驗證固定 FAQ／人工接手，正式 LINE、生成模型、代管與維護另評估。品牌及素材使用需確認授權；D.Ai 為軍諺整合行銷旗下品牌。
 
-```bash
-npm test
-```
-
-網站沒有 runtime dependency，也不會傳送或儲存訪客輸入。
-
-## 更換聯絡方式
-
-目前主要 CTA 與需求草稿旁的聯絡按鈕都連到 D.AI 的 LINE 官方帳號。需要更換聯絡網址時，修改 `js/app.js` 頂端的 `CONTACT_URL`：
-
-```js
-const CONTACT_URL = 'https://你的聯絡網址';
-```
-
-可使用 LINE、Email、Instagram、Messenger 或其他聯絡頁。設定為空字串時會自動維持 `#contact`。
-
-## 品牌資產
-
-- Logo 圖形：`assets/logo-mark.svg` / `assets/logo-mark.png`
-- 橫式字標：`assets/logo-lockup.svg` / `assets/logo-lockup.png`
-- 品牌名稱、概念與色票：`docs/brand-guide.md`
-- 網站設計規格：`docs/superpowers/specs/2026-08-13-freelance-engineer-site-design.md`
-
-品牌名稱為 **D.AI**，呼應創辦人的名字 Dai，也保留數位產品與 AI 技術的聯想。正式申請公司、商號、商標或網域前，請另行完成可用性與權利檢索。
+js/brief.js 與原有測試保留作既有內部邏輯，不再由公開頁載入。未修改其他專案或外部帳號。
