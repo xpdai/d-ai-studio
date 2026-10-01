@@ -52,7 +52,7 @@
       await tools.copyText(output.value, navigator.clipboard);
       copyButton.classList.add('is-copied');
       copyButton.querySelector('span').textContent = '已複製需求草稿';
-      copyStatus.textContent = '已複製，開啟 LINE 後貼上需求草稿即可開始洽談。';
+      copyStatus.textContent = '已複製。請開啟 LINE、貼上並自行按送出；本站尚未送出需求。';
       copyTimer = window.setTimeout(() => {
         copyButton.classList.remove('is-copied');
         copyButton.querySelector('span').textContent = '複製需求草稿';
