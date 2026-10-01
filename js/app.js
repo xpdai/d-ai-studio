@@ -29,6 +29,4 @@
     reveals.forEach((element) => element.classList.add('is-visible'));
   }
 
-  const year = document.getElementById('current-year');
-  if (year) year.textContent = String(new Date().getFullYear());
 })();
