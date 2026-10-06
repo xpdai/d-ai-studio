@@ -7,7 +7,7 @@
     <meta name="description" content="greet（AI 客服）串接 LINE 官方帳號，整理 FAQ、查看顧客對話，並由人工接手需要個別處理的問題。">
     <title>D.Ai｜greet（AI 客服）展示</title>
     <link rel="icon" href="assets/logo-mark.svg?v=3" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20261006-two-year-bundles">
+    <link rel="stylesheet" href="styles.css?v=20261006-greet-tour">
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳至主要內容</a>
@@ -15,29 +15,47 @@
       <a class="showcase-back" href="/#work">← 返回 D.Ai</a>
       <header class="showcase-hero">
         <div><h1><span translate="no">greet</span><small>（AI 客服）</small></h1><p class="section-kicker">LINE 官方帳號接待</p></div>
-        <p>串接 LINE 官方帳號，依整理好的常見問答回覆訊息；需要個別處理時，由人接手。</p>
+        <p>常見問題依核准答案回覆；需要個別判斷時，店家可以回看對話並接手。</p>
       </header>
-      <article id="faq" class="product-detail">
-        <h2>從答案整理，到對話接手。</h2>
-        <figure class="app-figure">
-          <a class="image-expand" href="assets/mvp/greet-formal-knowledge.png" target="_blank" rel="noopener" aria-label="開啟正式版知識庫完整圖片（新分頁）"><img src="assets/mvp/greet-formal-knowledge.png" alt="正式版 greet 知識庫：FAQ、批次試聊、參考文件與 CSV 匯入入口" width="980" height="445"></a>
-          <figcaption><h3>知識庫</h3><p>整理 FAQ，使用試聊、參考文件與匯入工具。</p><span class="zoom-note">點選圖片可放大查看。</span></figcaption>
-        </figure>
-        <div class="product-screen-grid">
-          <figure class="app-figure">
-            <a class="image-expand" href="assets/mvp/greet-formal-conversations.png" target="_blank" rel="noopener" aria-label="開啟正式版顧客對話完整圖片（新分頁）"><img src="assets/mvp/greet-formal-conversations.png" alt="正式版 greet 顧客對話列表與接手入口" width="980" height="989" loading="lazy"></a>
-            <figcaption><h3>顧客對話</h3><p>在對話列表查看狀態，需要時由人工接手。</p><span class="zoom-note">點選圖片可放大查看。</span></figcaption>
-          </figure>
-          <figure class="app-figure">
-            <a class="image-expand" href="assets/mvp/greet-formal-bookings.png" target="_blank" rel="noopener" aria-label="開啟正式版預約收單完整圖片（新分頁）"><img src="assets/mvp/greet-formal-bookings.png" alt="正式版 greet 預約收單工作區，目前顯示尚無預約" width="980" height="989" loading="lazy"></a>
-            <figcaption><h3>預約收單</h3><p>預約工作區，目前畫面顯示「尚無預約」。</p><span class="zoom-note">點選圖片可放大查看。</span></figcaption>
-          </figure>
+      <article id="screens" class="product-detail">
+        <h2>打開工作台，看見每一步。</h2>
+        <div class="greet-tour">
+          <div class="greet-tabs" role="tablist" aria-label="greet 功能頁面">
+            <button type="button" id="overview" role="tab" aria-controls="greet-panel" aria-selected="false" tabindex="-1" data-greet-screen="overview"><strong>01　首頁</strong><span>看接待進度</span></button>
+            <button type="button" id="conversations" role="tab" aria-controls="greet-panel" aria-selected="true" tabindex="0" data-greet-screen="conversations"><strong>02　顧客對話</strong><span>回看與人工接手</span></button>
+            <button type="button" id="faq" role="tab" aria-controls="greet-panel" aria-selected="false" tabindex="-1" data-greet-screen="faq"><strong>03　知識庫</strong><span>先核准答案</span></button>
+            <button type="button" id="bookings" role="tab" aria-controls="greet-panel" aria-selected="false" tabindex="-1" data-greet-screen="bookings"><strong>04　預約收單</strong><span>需求待店家確認</span></button>
+            <button type="button" id="settings" role="tab" aria-controls="greet-panel" aria-selected="false" tabindex="-1" data-greet-screen="settings"><strong>05　連線與設定</strong><span>檢查服務與入口</span></button>
+          </div>
+          <section id="greet-panel" class="greet-panel" role="tabpanel" aria-labelledby="conversations" tabindex="0">
+            <h3 id="greet-panel-title">把前後文交到人手上</h3>
+            <p id="greet-panel-copy">在對話列表回看顧客訊息與接待狀態；需要判斷時由店家接手，AI 暫停這段對話。</p>
+            <a id="greet-panel-link" class="image-expand" href="assets/mvp/greet-dai-conversation.png" target="_blank" rel="noopener" aria-label="開啟顧客對話示範畫面完整圖片"><img id="greet-panel-image" src="assets/mvp/greet-dai-conversation.png" alt="D.Ai 示範畫面：greet 顧客對話紀錄與店家接手狀態" width="980" height="760"></a>
+            <div class="greet-panel-caption"><span>示範畫面 · D.Ai</span><a id="greet-panel-open" href="assets/mvp/greet-dai-conversation.png" target="_blank" rel="noopener">點開看大圖 ↗</a></div>
+          </section>
         </div>
+        <section class="greet-chat-example" aria-labelledby="greet-chat-title">
+          <div class="greet-chat-copy">
+            <p class="section-kicker">對話示範</p>
+            <h2 id="greet-chat-title">從詢問到接手，<br>顧客知道下一步。</h2>
+            <p>先回答已整理的問題，再收集諮詢日期、時間與人數。這是預約需求；店家確認前，時段尚未成立。</p>
+            <ol><li>顧客詢問網站與客服</li><li>greet 引導說明需求</li><li>店家接手並確認時段</li></ol>
+            <a class="text-link" href="assets/mvp/greet-dai-chat.gif" download>下載對話 GIF <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="greet-chat-phone">
+            <video autoplay muted playsinline loop preload="metadata" poster="assets/mvp/greet-dai-chat-poster.png" aria-label="D.Ai 對話示範動畫：從網站與客服詢問，到預約需求待店家確認及人工接手">
+              <source src="assets/mvp/greet-dai-chat.mp4" type="video/mp4">
+              <img src="assets/mvp/greet-dai-chat.gif" alt="D.Ai 對話示範動畫" width="390" height="690">
+            </video>
+            <img class="greet-chat-poster" src="assets/mvp/greet-dai-chat-poster.png" alt="D.Ai 對話示範靜態畫面：諮詢需求待店家確認" width="390" height="690" loading="lazy">
+          </div>
+        </section>
         <details class="product-setup-note"><summary>使用環境與導入條件</summary><p>本機 App 需要 macOS 27 或以上；本機 AI 功能需要支援 Apple Intelligence 的 Mac，並完成模型設定。LINE 串接與實際回覆需依店家環境驗收，導入方式依需求評估。</p></details>
         <div class="product-contact"><div><h3>聊聊你的客服需求。</h3><p>帶著服務內容與目前常見問題，一起確認適合的做法。</p></div><a class="button line-contact-button" href="https://line.me/R/ti/p/@373owkyu" data-contact-link>用 LINE 聯絡我 <span aria-hidden="true">↗</span></a></div>
       </article>
     </main>
     <footer class="site-footer"><div class="page-shell"><span>D.Ai / DIGITAL PRODUCT STUDIO</span><p>形象網站・AI 客服</p><small class="copyright">© 2026 D.Ai. A brand of 軍諺整合行銷. All rights reserved.</small></div></footer>
     <script src="js/app.js"></script>
+    <script src="js/greet-tour.js?v=20261006"></script>
   </body>
 </html>
