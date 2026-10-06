@@ -87,6 +87,21 @@ section, article { scroll-margin-top: 100px; }
 .pricing-row p { margin-top: 4px; color: var(--muted); font-size: 13px; }
 .pricing-row b { font-size: 21px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pricing-row small { color: var(--muted); font-size: 12px; font-weight: 500; }
+.bundle-section { margin-top: 58px; padding-top: 30px; border-top: 1px solid var(--line); }
+.bundle-heading { display: grid; grid-template-columns: 1.15fr .85fr; column-gap: 10%; align-items: end; margin-bottom: 24px; }
+.bundle-heading .section-kicker { grid-column: 1 / -1; }
+.bundle-heading h4 { font-size: clamp(26px, 2.7vw, 36px); font-weight: 600; line-height: 1.4; letter-spacing: -.04em; }
+.bundle-heading > p:last-child { color: var(--muted); font-size: 14px; }
+.bundle-list { border-top: 1px solid var(--line); }
+.bundle-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 22px; align-items: center; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.bundle-row h5 { font-size: 18px; font-weight: 600; }
+.bundle-row p { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.bundle-price { display: grid; gap: 5px; justify-items: end; font-variant-numeric: tabular-nums; }
+.bundle-price > span { color: var(--muted); font-size: 13px; }
+.bundle-price del { text-decoration-thickness: 1.5px; text-decoration-color: currentColor; }
+.bundle-price strong { color: var(--blue); font-size: 22px; font-weight: 650; white-space: nowrap; }
+.bundle-price small { font-size: 12px; font-weight: 500; color: var(--muted); }
+.bundle-note { margin-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.8; }
 .pricing-note { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-top: 18px; color: var(--muted); font-size: 12px; }
 .pricing-note a { flex: 0 0 auto; color: var(--blue); font-size: 14px; font-weight: 650; }
 .pricing-note a:hover { text-decoration: underline; text-underline-offset: 5px; }
@@ -106,6 +121,7 @@ section, article { scroll-margin-top: 100px; }
 .showcase-back:hover { text-decoration: underline; text-underline-offset: 5px; }
 .showcase-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: end; padding: 48px 0 56px; }
 .showcase-hero h1 { font-size: clamp(54px, 7vw, 92px); font-weight: 650; line-height: 1.05; letter-spacing: -.065em; }
+.showcase-hero h1 small { font-size: .43em; letter-spacing: -.04em; white-space: nowrap; }
 .showcase-hero .section-kicker { margin: 20px 0 0; color: var(--ink); font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
 .showcase-hero > p { max-width: 30em; color: var(--muted); font-size: 17px; line-height: 1.9; }
 .product-detail { padding-top: 30px; border-top: 1px solid var(--line); }
@@ -181,6 +197,14 @@ section, article { scroll-margin-top: 100px; }
   .pricing-row { grid-template-columns: 1fr; gap: 8px; min-height: 0; padding-block: 17px; }
   .pricing-row strong { font-size: 16px; }
   .pricing-row b { font-size: 19px; }
+  .bundle-section { margin-top: 40px; padding-top: 24px; }
+  .bundle-heading { display: block; margin-bottom: 20px; }
+  .bundle-heading h4 { font-size: 26px; }
+  .bundle-heading > p:last-child { margin-top: 12px; font-size: 13px; line-height: 1.7; }
+  .bundle-row { grid-template-columns: 1fr; gap: 12px; padding-block: 18px; }
+  .bundle-row h5 { font-size: 16px; }
+  .bundle-price { justify-items: start; }
+  .bundle-price strong { font-size: 20px; }
   .pricing-note { display: block; line-height: 1.8; }
   .pricing-note a { display: inline-block; margin-top: 10px; }
   .contact { padding-block: 44px; }
