@@ -19,7 +19,7 @@
     <link rel="icon" href="assets/logo-mark.svg?v=3" type="image/svg+xml" sizes="any" />
     <link rel="icon" href="assets/logo-mark.png?v=3" type="image/png" sizes="512x512" />
     <link rel="shortcut icon" href="assets/logo-mark.png?v=3" type="image/png" />
-    <link rel="stylesheet" href="styles.css?v=20261006-astra-visual" />
+    <link rel="stylesheet" href="styles.css?v=20261006-service-theater" />
     <script>
       document.documentElement.classList.add('js');
     </script>
@@ -89,17 +89,72 @@
       <section class="section-space" id="mvp-services">
         <div class="page-shell">
           <div class="section-heading"><div><p class="section-kicker">服務</p><h2>網站與客服，<br>一起考慮。</h2></div><p>形象網站與 greet 是主要服務；開發與整合需求依實際情境評估。</p></div>
-          <div class="service-featured" aria-label="主要服務">
-            <a class="service-feature" href="#templates"><span>形象網站</span><h3>讓訪客一眼看懂你的品牌。</h3><p>整理品牌故事、服務、作品與聯絡方式。</p><b>看網站範本 <span aria-hidden="true">↗</span></b></a>
-            <a class="service-feature" href="mvp-showcase.html#faq"><span>greet / LINE AI 客服</span><h3>對話有進度，回答有依據。</h3><p>整理 FAQ、查看顧客對話；需要判斷時由人接手。</p><b>看正式版 greet <span aria-hidden="true">↗</span></b></a>
-          </div>
-          <div class="service-list" aria-label="其他開發服務">
-            <h3>其他開發與整合</h3>
-            <a href="#contact"><strong>網站與 Web App</strong><span>頁面、互動與客製功能</span><b aria-hidden="true">↗</b></a>
-            <a href="#contact"><strong>系統與管理平台</strong><span>會員、後台、Dashboard、資料與權限</span><b aria-hidden="true">↗</b></a>
-            <a href="#contact"><strong>自動化與工具開發</strong><span>Python、資料處理與工作流程</span><b aria-hidden="true">↗</b></a>
-            <a href="#contact"><strong>API 與第三方整合</strong><span>系統串接與資料交換</span><b aria-hidden="true">↗</b></a>
-            <a href="#contact"><strong>AI 與新技術整合</strong><span>AI API、Chatbot 與功能流程</span><b aria-hidden="true">↗</b></a>
+          <div class="service-theater" data-service-theater>
+            <div class="service-story">
+              <p class="service-story-type" data-service-type>主要服務</p>
+              <h3 data-service-title>形象網站</h3>
+              <p class="service-story-lead" data-service-lead>讓訪客一眼看懂你的品牌。</p>
+              <p class="service-story-copy" data-service-copy>把品牌故事、服務與作品整理成清楚的頁面，讓訪客知道你提供什麼、如何聯絡。</p>
+              <div class="service-story-detail"><h4>可以做什麼</h4><p data-service-detail>品牌介紹・服務頁面・作品展示</p></div>
+              <a class="text-link service-story-cta" href="#templates" data-service-link>看網站範本 <span aria-hidden="true">↗</span></a>
+              <button class="text-link service-story-cta" type="button" data-service-demo="web" aria-haspopup="dialog" hidden>試試互動範例 <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="service-stage-wrap">
+              <div class="service-stage" role="group" aria-roledescription="輪播" aria-label="七項服務卡片，可使用左右方向鍵切換">
+                <button type="button" class="service-card service-card-website" data-service-card="website" data-title="形象網站" data-subtitle="品牌故事、服務、作品與聯絡方式" data-type="主要服務" data-lead="讓訪客一眼看懂你的品牌。" data-copy="把品牌故事、服務與作品整理成清楚的頁面，讓訪客知道你提供什麼、如何聯絡。" data-detail="品牌介紹・服務頁面・作品展示" data-link="#templates" data-cta="看網站範本" data-position="active" aria-label="選擇形象網站" aria-pressed="true">
+                  <span class="service-card-top"><span>主要服務</span><b>01</b></span>
+                  <span class="service-card-title">形象網站</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-browser"><span class="scene-browser-bar"><i></i><i></i><i></i></span><span class="scene-site-title">你的品牌</span><span class="scene-site-rule"></span><span class="scene-site-grid"><i></i><i></i></span><span class="scene-caption">故事 · 服務 · 聯絡</span></span></span>
+                  <span class="service-card-caption">品牌故事、服務、作品與聯絡方式</span>
+                </button>
+                <button type="button" class="service-card service-card-greet" data-service-card="greet" data-title="greet / LINE AI 客服" data-subtitle="FAQ、顧客對話與人工接手" data-type="主要服務" data-lead="對話有進度，回答有依據。" data-copy="整理 FAQ、查看顧客對話；需要個別處理或判斷時，由人接手。" data-detail="FAQ 知識庫・對話紀錄・人工接手" data-link="mvp-showcase.html#faq" data-cta="看正式版 greet" data-position="hidden" aria-label="選擇greet / LINE AI 客服" aria-pressed="false">
+                  <span class="service-card-top"><span>主要服務</span><b>02</b></span>
+                  <span class="service-card-title">greet / LINE AI 客服</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-chat"><span class="scene-chat-question">你們的營業時間？</span><span class="scene-chat-answer">從整理好的 FAQ 找答案</span><span class="scene-chat-handoff">需要判斷 → 由人接手</span></span></span>
+                  <span class="service-card-caption">FAQ、顧客對話與人工接手</span>
+                </button>
+                <button type="button" class="service-card service-card-web" data-service-card="web" data-title="網站與 Web App" data-subtitle="頁面、互動與客製功能" data-type="開發與整合" data-lead="讓頁面，幫訪客完成一件事。" data-copy="把需求做成可操作的頁面，讓訪客選服務、看資訊，或循著流程完成下一步。" data-detail="服務選擇器・活動頁・客製流程" data-link="" data-cta="試試互動範例" data-position="hidden" aria-label="選擇網站與 Web App" aria-pressed="false">
+                  <span class="service-card-top"><span>開發與整合</span><b>03</b></span>
+                  <span class="service-card-title">網站與 Web App</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-flow"><span>選擇需求</span><b>↓</b><span class="scene-flow-active">找到合適方案</span><b>↓</b><span>前往下一步</span></span></span>
+                  <span class="service-card-caption">頁面、互動與客製功能</span>
+                </button>
+                <button type="button" class="service-card service-card-platform" data-service-card="platform" data-title="系統與管理平台" data-subtitle="會員、後台、Dashboard、資料與權限" data-type="開發與整合" data-lead="讓資料與權限，都有位置。" data-copy="把資料集中到後台，依角色安排可以看見與操作的內容，讓工作進度容易追蹤。" data-detail="會員管理・案件追蹤・角色權限" data-link="" data-cta="試試互動範例" data-position="hidden" aria-label="選擇系統與管理平台" aria-pressed="false">
+                  <span class="service-card-top"><span>開發與整合</span><b>04</b></span>
+                  <span class="service-card-title">系統與管理平台</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-dashboard"><span class="scene-dashboard-head"><span>案件概覽</span><b>角色權限</b></span><span class="scene-bars"><i></i><i></i><i></i><i></i></span><span class="scene-dashboard-row">待處理 <span>可追蹤</span></span><span class="scene-dashboard-row">已完成 <span>可查閱</span></span></span></span>
+                  <span class="service-card-caption">會員、後台、Dashboard、資料與權限</span>
+                </button>
+                <button type="button" class="service-card service-card-automation" data-service-card="automation" data-title="自動化與工具開發" data-subtitle="Python、資料處理與工作流程" data-type="開發與整合" data-lead="重複的步驟，交給工具整理。" data-copy="把清整名單、彙整報表與檔案轉換變成固定流程，減少每次手動重做的步驟。" data-detail="名單清整・報表彙整・流程自動化" data-link="" data-cta="試試互動範例" data-position="hidden" aria-label="選擇自動化與工具開發" aria-pressed="false">
+                  <span class="service-card-top"><span>開發與整合</span><b>05</b></span>
+                  <span class="service-card-title">自動化與工具開發</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-clean"><span><span>原始資料</span><i></i><i></i><i></i></span><b>→</b><span class="scene-clean-after"><span>整理完成</span><i></i><i></i><small>去重 · 補值檢查</small></span></span></span>
+                  <span class="service-card-caption">Python、資料處理與工作流程</span>
+                </button>
+                <button type="button" class="service-card service-card-api" data-service-card="api" data-title="API 與第三方整合" data-subtitle="系統串接與資料交換" data-type="開發與整合" data-lead="讓系統之間，接得上資料。" data-copy="對齊兩套系統的欄位與交換方式，先檢查缺漏，再把資料交給下一個流程。" data-detail="欄位對應・資料交換・狀態同步" data-link="" data-cta="試試互動範例" data-position="hidden" aria-label="選擇API 與第三方整合" aria-pressed="false">
+                  <span class="service-card-top"><span>開發與整合</span><b>06</b></span>
+                  <span class="service-card-title">API 與第三方整合</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-api"><span>來源系統<small>姓名 · 電子郵件</small></span><span>↓ 欄位對應 ↓</span><span class="scene-api-target">接收系統<small>姓名 · 聯絡方式</small></span></span></span>
+                  <span class="service-card-caption">系統串接與資料交換</span>
+                </button>
+                <button type="button" class="service-card service-card-ai" data-service-card="ai" data-title="AI 與新技術整合" data-subtitle="AI API、Chatbot 與功能流程" data-type="開發與整合" data-lead="把新技術，放進有依據的流程。" data-copy="先確認資料來源與功能邊界，再將 AI 接進問答、摘要或需要人工確認的工作流程。" data-detail="FAQ 助理・資料摘要・人工確認" data-link="" data-cta="試試互動範例" data-position="hidden" aria-label="選擇AI 與新技術整合" aria-pressed="false">
+                  <span class="service-card-top"><span>開發與整合</span><b>07</b></span>
+                  <span class="service-card-title">AI 與新技術整合</span>
+                  <span class="service-card-scene" aria-hidden="true"><span class="scene-ai"><span>顧客問題</span><span>↓ 查找資料依據</span><span class="scene-ai-choices"><span>有依據<br><b>提供答案</b></span><span>需判斷<br><b>交給人</b></span></span></span></span>
+                  <span class="service-card-caption">AI API、Chatbot 與功能流程</span>
+                </button>
+              </div>
+              <div class="service-stage-controls"><button type="button" data-service-prev aria-label="上一項服務">←</button><span data-service-count aria-live="polite" aria-atomic="true">01 / 07</span><button type="button" data-service-next aria-label="下一項服務">→</button></div>
+            </div>
+            <div class="service-picker" role="group" aria-label="選擇服務">
+              <button type="button" data-service-pick="0" aria-pressed="true">形象網站</button>
+              <button type="button" data-service-pick="1" aria-pressed="false">greet / LINE AI 客服</button>
+              <button type="button" data-service-pick="2" aria-pressed="false">網站與 Web App</button>
+              <button type="button" data-service-pick="3" aria-pressed="false">系統與管理平台</button>
+              <button type="button" data-service-pick="4" aria-pressed="false">自動化與工具開發</button>
+              <button type="button" data-service-pick="5" aria-pressed="false">API 與第三方整合</button>
+              <button type="button" data-service-pick="6" aria-pressed="false">AI 與新技術整合</button>
+            </div>
           </div>
           <p class="mvp-footnote">正式串接、上線與維護依需求另行評估。</p>
         </div>
@@ -109,6 +164,12 @@
 
     <footer class="site-footer"><div class="page-shell"><span>D.Ai / DIGITAL PRODUCT STUDIO</span><p>形象網站・AI 客服</p><small class="copyright">© 2026 D.Ai. A brand of 軍諺整合行銷. All rights reserved.</small></div></footer>
 
+    <dialog class="service-dialog" aria-labelledby="service-demo-title" aria-describedby="service-demo-intro">
+      <div class="service-dialog-header"><p>其他開發與整合</p><button type="button" class="service-dialog-close" aria-label="關閉服務範例">關閉 <span aria-hidden="true">×</span></button></div>
+      <div class="service-dialog-body" tabindex="0"></div>
+    </dialog>
     <script src="js/app.js"></script>
+    <script src="js/service-theater.js?v=20261006-all-services"></script>
+    <script src="js/service-demos.js?v=20261006"></script>
   </body>
 </html>
