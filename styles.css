@@ -34,6 +34,7 @@ section, article { scroll-margin-top: 100px; }
 .main-nav { display: flex; align-items: center; gap: 32px; font-size: 14px; font-weight: 600; }
 .main-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .main-nav a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 6px; }
+.main-nav .lang-switch, .showcase-nav .lang-switch { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; font-weight: 650; }
 .header-cta { justify-self: end; display: inline-flex; align-items: center; gap: 20px; min-height: 44px; padding: 0 17px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; font-weight: 650; }
 .header-cta:hover { border-color: var(--blue); color: var(--blue); }
 .section-kicker { margin-bottom: 16px; color: var(--muted); font-size: 14px; font-weight: 600; }
@@ -121,6 +122,7 @@ section, article { scroll-margin-top: 100px; }
 /* greet product page: wide knowledge view followed by two full, uncropped screens. */
 .showcase { padding-block: 36px 70px; }
 .showcase-back { display: inline-flex; align-items: center; min-height: 44px; color: var(--blue); font-size: 14px; }
+.showcase-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .showcase-back:hover { text-decoration: underline; text-underline-offset: 5px; }
 .showcase-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: end; padding: 48px 0 56px; }
 .showcase-hero h1 { font-size: clamp(54px, 7vw, 92px); font-weight: 650; line-height: 1.05; letter-spacing: -.065em; }

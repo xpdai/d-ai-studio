@@ -1,0 +1,19 @@
+/* Keep the existing D.Ai design while allowing longer English labels to wrap. */
+html[lang="en"] body { font-family: "Helvetica Neue", Arial, system-ui, sans-serif; }
+html[lang="en"] .pricing-row b,
+html[lang="en"] .bundle-price strong { white-space: normal; }
+html[lang="en"] .bundle-price { max-width: 250px; text-align: right; }
+html[lang="en"] .bundle-price small { display: block; margin-top: 4px; white-space: nowrap; }
+html[lang="en"] .showcase-hero h1 small { display: block; max-width: 16em; margin-top: 4px; font-size: .34em; line-height: 1.25; white-space: normal; }
+html[lang="en"] .service-card-title,
+html[lang="en"] .service-card-caption { overflow-wrap: anywhere; }
+.greet-language-note { margin: -12px 0 26px; color: var(--muted); font-size: 13px; }
+.greet-swipe-hint { display: none; }
+@media (max-width: 760px) {
+  .greet-swipe-hint { display: block; margin: -6px 0 12px; color: var(--blue); font-size: 12px; font-weight: 600; }
+  html[lang="en"] .greet-tabs button { flex-basis: 154px; white-space: normal; }
+}
+@media (max-width: 700px) {
+  html[lang="en"] .pricing-row b { text-align: left; }
+  html[lang="en"] .bundle-price { max-width: none; text-align: left; }
+}
