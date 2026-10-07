@@ -76,6 +76,22 @@
         body.querySelector('[data-ai-run]').addEventListener('click', () => { body.querySelector('[data-ai-result]').textContent = answers[body.querySelector('#ai-scenario').value]; });
         body.querySelector('select').addEventListener('change', () => { body.querySelector('[data-ai-result]').textContent = '情境已變更，請查看新的處理流程。'; });
       }
+    },
+    custom: {
+      title: '客製開發服務', intro: '從實際工作方式出發，討論功能、資料與使用流程。', use: '可討論預約報名流程、資料整理或內部工具；實際開發範圍依需求評估。',
+      content: '<p class="demo-note">以下是需求討論示意，不會送出資料或建立預約。</p>' + select('custom-scenario', '選擇想討論的情境', [['registration', '預約或報名流程'], ['data', '資料整理流程']]) + '<button class="demo-action" type="button" data-custom-run>查看討論方向</button><div class="demo-result" data-custom-result role="status">選擇情境，看看可以先釐清哪些問題。</div>',
+      setup() {
+        const directions = {
+          registration: '先釐清誰會填寫、需要收集哪些欄位、名額或時段如何管理，以及送出後由誰確認。',
+          data: '先釐清資料從哪裡來、目前如何整理、哪些欄位需要核對，以及結果要交給誰使用。'
+        };
+        body.querySelector('[data-custom-run]').addEventListener('click', () => {
+          body.querySelector('[data-custom-result]').textContent = directions[body.querySelector('#custom-scenario').value];
+        });
+        body.querySelector('#custom-scenario').addEventListener('change', () => {
+          body.querySelector('[data-custom-result]').textContent = '情境已變更，請查看新的討論方向。';
+        });
+      }
     }
   };
   document.querySelectorAll('[data-service-demo]').forEach(button => button.addEventListener('click', () => {

@@ -76,6 +76,22 @@
         body.querySelector('[data-ai-run]').addEventListener('click', () => { body.querySelector('[data-ai-result]').textContent = answers[body.querySelector('#ai-scenario').value]; });
         body.querySelector('select').addEventListener('change', () => { body.querySelector('[data-ai-result]').textContent = 'Scenario changed. View the new handling flow.'; });
       }
+    },
+    custom: {
+      title: 'Custom Development', intro: 'Discuss features, data and user flows around the way your team actually works.', use: 'Booking or registration flows, data organization and internal tools can be discussed; the development scope depends on your needs.',
+      content: '<p class="demo-note">This is a sample discovery flow. It does not submit data or create a booking.</p>' + select('custom-scenario', 'Choose a scenario to discuss', [['registration', 'Booking or registration flow'], ['data', 'Data organization flow']]) + '<button class="demo-action" type="button" data-custom-run>View discussion points</button><div class="demo-result" data-custom-result role="status">Choose a scenario to see what we would clarify first.</div>',
+      setup() {
+        const directions = {
+          registration: 'Clarify who fills in the form, which fields are needed, how places or times are managed, and who confirms a submission.',
+          data: 'Clarify where the data comes from, how it is currently organized, which fields need checking, and who uses the result.'
+        };
+        body.querySelector('[data-custom-run]').addEventListener('click', () => {
+          body.querySelector('[data-custom-result]').textContent = directions[body.querySelector('#custom-scenario').value];
+        });
+        body.querySelector('#custom-scenario').addEventListener('change', () => {
+          body.querySelector('[data-custom-result]').textContent = 'Scenario changed. View the new discussion points.';
+        });
+      }
     }
   };
   document.querySelectorAll('[data-service-demo]').forEach(button => button.addEventListener('click', () => {
