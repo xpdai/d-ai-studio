@@ -5,36 +5,36 @@
 
   const screens = {
     overview: {
-      title: 'See today’s support status',
-      copy: 'The overview brings together unanswered conversations, booking requests and connection status so your team can see what needs attention.',
+      title: 'See what needs attention',
+      copy: 'The overview lists unanswered conversations, booking requests and connection status.',
       image: 'greet-dai-home.png',
       alt: 'Illustrative D.Ai greet overview with support status and requests awaiting confirmation',
       label: 'Overview'
     },
     conversations: {
-      title: 'Give your team the full context',
-      copy: 'Review messages and status in one place. When a person takes over, AI pauses for that conversation.',
+      title: 'See the full conversation when you take over',
+      copy: 'Customer messages stay in one place. When your team takes over, AI pauses for that conversation.',
       image: 'greet-dai-conversation.png',
       alt: 'Illustrative D.Ai greet screen showing conversation history and a human takeover state',
       label: 'Conversations'
     },
     faq: {
-      title: 'Approve answers before using them',
-      copy: 'Organize FAQs and reference documents. Test answers in a preview chat and review CSV imports before your team approves the final content.',
+      title: 'Approve answers before use',
+      copy: 'Organize FAQs and documents, test replies and preview CSV imports. Your team approves the final answers.',
       image: 'greet-dai-faq.png',
       alt: 'Illustrative D.Ai greet knowledge base showing FAQs, test chat and document tools',
       label: 'Knowledge base'
     },
     bookings: {
-      title: 'Collect a request, then confirm it',
-      copy: 'Collect a preferred date, time and party size. The business accepts or declines before the customer receives a final result; the time shown is not a confirmed booking.',
+      title: 'Collect requests for your review',
+      copy: 'Collect a preferred date, time and party size. Your team accepts or declines before the customer is notified; no booking is confirmed yet.',
       image: 'greet-dai-booking.png',
       alt: 'Illustrative D.Ai greet booking request with date, time, party size and pending confirmation',
       label: 'Booking requests'
     },
     settings: {
-      title: 'Check the connection before going live',
-      copy: 'Review the local Mac service, LINE webhook and on-device model status. Production setup still needs validation in each business environment.',
+      title: 'Check connection status',
+      copy: 'Check the Mac service, LINE webhook and local model status. Validate them in the business environment before going live.',
       image: 'greet-dai-settings.png',
       alt: 'Illustrative D.Ai greet connection settings with local service, LINE webhook and model status',
       label: 'Connection and setup'
@@ -64,7 +64,7 @@
     image.alt = item.alt;
     const link = document.getElementById('greet-panel-link');
     link.href = url;
-    link.setAttribute('aria-label', 'Open' + item.label + 'illustrative screen image');
+    link.setAttribute('aria-label', `Open the ${item.label} illustrative screen image`);
     document.getElementById('greet-panel-open').href = url;
   }
 

@@ -10,7 +10,7 @@
   const select = (id, label, options) => `<label class="demo-field" for="${id}">${label}<select id="${id}">${options.map(([value, text]) => `<option value="${value}">${text}</option>`).join('')}</select></label>`;
   const services = {
     web: {
-      title: 'Websites and web apps', intro: 'Build pages that help visitors complete a task and find the next step.', use: 'Useful for campaign pages, service selectors, booking flows and custom forms.',
+      title: 'Websites and web apps', intro: 'Let visitors choose a service, share details or request a time on your site.', use: 'For campaign pages, service selectors, booking flows or forms.',
       content: select('web-purpose', 'Choose what a visitor wants to do', [['visit', 'Explore services'], ['book', 'Arrange a consultation']]) + select('web-mode', 'Choose a page style', [['simple', 'Clear and simple'], ['warm', 'Warm and friendly']]) + '<div class="demo-web-preview" data-web-preview><span class="demo-tag">Page preview</span><h4 data-web-title></h4><p data-web-copy></p><button class="demo-action" type="button" data-web-next></button><p class="demo-result" data-web-result role="status"></p></div>',
       setup() {
         const render = () => {
@@ -28,7 +28,7 @@
       }
     },
     platform: {
-      title: 'Systems and admin platforms', intro: 'Bring scattered data together so each role sees and does only what it needs to.', use: 'Useful for membership, internal dashboards, progress tracking and access control.',
+      title: 'Systems and admin platforms', intro: 'Keep cases in one place and set who can view or edit them.', use: 'For member records, admin tools and case tracking.',
       content: select('platform-role', 'Switch user role', [['admin', 'Admin'], ['staff', 'Staff']]) + select('platform-filter', 'Filter case status', [['all', 'All'], ['pending', 'Pending'], ['done', 'Done']]) + '<p class="demo-result" data-platform-summary role="status"></p><div class="demo-records" data-platform-records></div>',
       setup() {
         const records = [{name:'Brand website inquiry',owner:'Staff',status:'pending',budget:'30,000'}, {name:'Member data cleanup',owner:'Admin',status:'pending',budget:'18,000'}, {name:'Campaign page update',owner:'Staff',status:'done',budget:'8,000'}];
@@ -42,7 +42,7 @@
       }
     },
     automation: {
-      title: 'Automation and custom tools', intro: 'Automate repeatable data cleanup for consistent results.', use: 'Useful for list cleanup, reporting, file conversion and repeatable workflows.',
+      title: 'Automation and custom tools', intro: 'Make list cleanup and reporting repeatable.', use: 'For lists, reports and file conversion.',
       content: '<div class="demo-data"><h4>Raw sample list</h4><pre> An , AN@example.com\nAn, an@example.com\n Ching , CHING@example.com\nYu, (missing email)</pre></div><div class="demo-options"><label><input type="checkbox" id="clean-space" checked> Trim spaces and lowercase emails</label><label><input type="checkbox" id="clean-duplicate" checked> Merge duplicate emails</label></div><button class="demo-action" type="button" data-clean>Clean sample list</button><div class="demo-result" data-clean-result role="status">Choose rules to preview the cleaned list.</div>',
       setup() {
         body.querySelector('[data-clean]').addEventListener('click', () => {
@@ -60,7 +60,7 @@
       }
     },
     api: {
-      title: 'APIs and third-party integrations', intro: 'Map fields consistently between systems and catch missing values before importing.', use: 'Useful for form-to-admin flows, order syncing, member data exchange and status updates.',
+      title: 'APIs and third-party integrations', intro: 'Match fields, check gaps and then exchange data.', use: 'For forms, admin tools, orders and member data.',
       content: '<div class="demo-data"><h4>Source: sample registration form</h4><p>Name: Ching<br>Email: ching@example.com<br>Phone: missing</p></div>' + select('api-mapping', 'Which source field maps to Contact in the admin system?', [['email', 'Email'], ['phone', 'Phone']]) + '<button class="demo-action" type="button" data-api-check>Check and simulate import</button><div class="demo-result" data-api-result role="status">Choose a field, then check completeness.</div>',
       setup() {
         body.querySelector('[data-api-check]').addEventListener('click', () => {
@@ -69,7 +69,7 @@
       }
     },
     ai: {
-      title: 'AI and emerging technology', intro: 'Use AI inside a defined workflow: check source material before answering or handing off.', use: 'Useful for FAQ assistance, data summaries and workflows that need human review.',
+      title: 'AI and emerging technology', intro: 'Check the source first; hand off questions you cannot verify.', use: 'For FAQs, summaries and human review.',
       content: '<p class="demo-note">The following scenarios and outcomes are scripted. This demo does not call an AI model.</p>' + select('ai-scenario', 'Choose a sample customer question', [['hours', 'What are your hours?'], ['refund', 'Can my order be refunded?'], ['unknown', 'Can you guarantee delivery tomorrow?']]) + '<button class="demo-action" type="button" data-ai-run>View the handling flow</button><div class="demo-result" data-ai-result role="status">Choose a question to see the source and handling path.</div>',
       setup() {
         const answers = {hours: 'Approved FAQ found → show the fixed sample answer: Monday to Friday, 09:00–18:00. Source: sample hours FAQ.', refund: 'Individual order → human review. Staff checks the order and refund terms before replying. This demo does not access any order.', unknown: 'No verified delivery data → no guarantee. Staff checks progress before sharing a confirmed timeframe.'};
