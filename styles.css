@@ -42,7 +42,8 @@ section, article { scroll-margin-top: 100px; }
 .hero-copy { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr); column-gap: 8%; align-items: end; }
 .eyebrow { grid-column: 1 / -1; margin-bottom: 30px; color: var(--muted); font-size: 14px; }
 .hero h1 { grid-column: 1; grid-row: 2 / 4; font-size: clamp(64px, 7.2vw, 104px); font-weight: 650; line-height: 1.14; letter-spacing: -.065em; white-space: nowrap; }
-.hero h1 span { display: block; width: max-content; max-width: 100%; text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: .065em; text-underline-offset: .15em; }
+.hero h1 small { display: block; font-size: .55em; line-height: 1.25; letter-spacing: -.045em; }
+.hero h1 span { display: inline-block; width: max-content; max-width: 100%; text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: .065em; text-underline-offset: .15em; }
 .hero-lead { align-self: end; font-size: 17px; line-height: 1.95; max-width: 29em; }
 .hero-actions { margin-top: 28px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 54px; padding: 0 23px; border-radius: 6px; font-size: 15px; font-weight: 650; }
