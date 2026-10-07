@@ -10,7 +10,7 @@
   const select = (id, label, options) => `<label class="demo-field" for="${id}">${label}<select id="${id}">${options.map(([value, text]) => `<option value="${value}">${text}</option>`).join('')}</select></label>`;
   const services = {
     web: {
-      title: '網站與 Web App', intro: '讓訪客在網站選服務、填資料或提出預約需求。', use: '可做活動頁、服務選擇器、預約流程或表單。',
+      title: '網站與 Web App', intro: '把頁面做成能完成任務的工具，讓訪客依需求找到下一步。', use: '適合活動頁、服務選擇器、預約流程與客製表單。',
       content: select('web-purpose', '選擇訪客想做的事', [['visit', '認識服務'], ['book', '安排諮詢']]) + select('web-mode', '選擇頁面風格', [['simple', '簡潔清楚'], ['warm', '溫暖親切']]) + '<div class="demo-web-preview" data-web-preview><span class="demo-tag">頁面預覽</span><h4 data-web-title></h4><p data-web-copy></p><button class="demo-action" type="button" data-web-next></button><p class="demo-result" data-web-result role="status"></p></div>',
       setup() {
         const render = () => {
@@ -28,7 +28,7 @@
       }
     },
     platform: {
-      title: '系統與管理平台', intro: '把案件資料集中，依角色分配查看與操作權限。', use: '可做會員管理、後台與案件追蹤。',
+      title: '系統與管理平台', intro: '把分散的資料集中，讓不同角色看到該看的內容、執行該做的事。', use: '適合會員管理、內部後台、進度追蹤與資料權限。',
       content: select('platform-role', '切換使用者角色', [['admin', '管理員'], ['staff', '服務人員']]) + select('platform-filter', '篩選案件狀態', [['all', '全部'], ['pending', '待處理'], ['done', '已完成']]) + '<p class="demo-result" data-platform-summary role="status"></p><div class="demo-records" data-platform-records></div>',
       setup() {
         const records = [{name:'品牌網站諮詢',owner:'服務人員',status:'pending',budget:'30,000'}, {name:'會員資料整理',owner:'管理員',status:'pending',budget:'18,000'}, {name:'活動頁更新',owner:'服務人員',status:'done',budget:'8,000'}];
@@ -42,7 +42,7 @@
       }
     },
     automation: {
-      title: '自動化與工具開發', intro: '把名單整理、報表彙整做成固定流程。', use: '可處理名單、報表與檔案轉換。',
+      title: '自動化與工具開發', intro: '把重複的資料整理步驟交給工具，讓每次處理都有一致的結果。', use: '適合名單清整、報表彙整、檔案轉換與固定工作流程。',
       content: '<div class="demo-data"><h4>原始示範名單</h4><pre> 小安 , AN@example.com\n小安, an@example.com\n 小晴 , CHING@example.com\n小宇, （缺少信箱）</pre></div><div class="demo-options"><label><input type="checkbox" id="clean-space" checked> 去除空白、信箱轉小寫</label><label><input type="checkbox" id="clean-duplicate" checked> 合併重複信箱</label></div><button class="demo-action" type="button" data-clean>執行名單整理</button><div class="demo-result" data-clean-result role="status">選好規則，查看整理後的名單。</div>',
       setup() {
         body.querySelector('[data-clean]').addEventListener('click', () => {
@@ -60,7 +60,7 @@
       }
     },
     api: {
-      title: 'API 與第三方整合', intro: '對應欄位、檢查缺漏，再交換資料。', use: '可串接表單、後台、訂單與會員資料。',
+      title: 'API 與第三方整合', intro: '讓兩套系統用一致的欄位交換資料，並先找出缺漏，減少來回補填。', use: '適合表單接後台、訂單同步、會員資料交換與狀態更新。',
       content: '<div class="demo-data"><h4>來源：示範報名表</h4><p>姓名：小晴<br>電子郵件：ching@example.com<br>電話：未填</p></div>' + select('api-mapping', '後台的「聯絡方式」對應哪個欄位？', [['email', '電子郵件'], ['phone', '電話']]) + '<button class="demo-action" type="button" data-api-check>檢查並模擬匯入</button><div class="demo-result" data-api-result role="status">先選欄位，再檢查資料是否完整。</div>',
       setup() {
         body.querySelector('[data-api-check]').addEventListener('click', () => {
@@ -69,7 +69,7 @@
       }
     },
     ai: {
-      title: 'AI 與新技術整合', intro: '先查資料來源；無法確認的問題交給人。', use: '可用於 FAQ、資料摘要與人工複核。',
+      title: 'AI 與新技術整合', intro: '把 AI 放進有明確規則的流程，先確認資料依據，再決定回答或交給人處理。', use: '適合 FAQ 助理、資料摘要與需要人工確認的輔助流程。',
       content: '<p class="demo-note">以下為預先寫好的情境與結果，沒有呼叫 AI 模型。</p>' + select('ai-scenario', '選擇顧客問題情境', [['hours', '你們的營業時間？'], ['refund', '我的訂單可以退款嗎？'], ['unknown', '可以保證明天送到嗎？']]) + '<button class="demo-action" type="button" data-ai-run>查看處理流程</button><div class="demo-result" data-ai-result role="status">選一個問題，看看資料依據與處理方式。</div>',
       setup() {
         const answers = {hours: '比對到已整理 FAQ → 提供固定答案：示範營業時間為週一至週五 09:00–18:00。依據：營業時間 FAQ。', refund: '涉及個別訂單 → 轉人工確認：請由服務人員查看訂單與退款條件，再回覆顧客。這個範例不讀取訂單。', unknown: '沒有可確認的配送資料 → 不做保證：請由服務人員確認配送進度，再提供可確認的時間。'};
