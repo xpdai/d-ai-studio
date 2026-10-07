@@ -5,36 +5,36 @@
 
   const screens = {
     overview: {
-      title: '先看今天的接待進度',
-      copy: '首頁彙整待回覆對話、預約需求與連線狀態，先知道哪些事需要店家處理。',
+      title: '先看待處理的事',
+      copy: '首頁列出待回覆對話、預約需求與連線狀態。',
       image: 'greet-dai-home.png',
       alt: 'D.Ai 示範畫面：greet 首頁的接待進度與待確認需求',
       label: '首頁'
     },
     conversations: {
-      title: '把前後文交到人手上',
-      copy: '在對話列表回看顧客訊息與接待狀態；需要判斷時由店家接手，AI 暫停這段對話。',
+      title: '接手時，對話看得完整',
+      copy: '顧客訊息集中在這裡；你接手後，這段對話的 AI 會暫停。',
       image: 'greet-dai-conversation.png',
       alt: 'D.Ai 示範畫面：greet 顧客對話紀錄與店家接手狀態',
       label: '顧客對話'
     },
     faq: {
-      title: '答案先核准，再拿來回覆',
-      copy: '整理 FAQ 與參考文件；可先用試聊檢查回答，也能預覽 CSV 匯入內容。正式答案需由店家核准。',
+      title: '答案核准後才使用',
+      copy: '整理 FAQ 與參考文件，可先試聊或預覽 CSV；正式答案由你核准。',
       image: 'greet-dai-faq.png',
       alt: 'D.Ai 示範畫面：greet 知識庫的 FAQ、試聊與文件工具',
       label: '知識庫'
     },
     bookings: {
-      title: '先收需求，店家再確認',
-      copy: '收集顧客提出的日期、時間與人數。店家接受或婉拒後，顧客才收到最終結果；畫面中的時段尚未成立。',
+      title: '先收需求，再由你確認',
+      copy: '收集日期、時間與人數。你接受或婉拒後才通知顧客；目前不是已成立的預約。',
       image: 'greet-dai-booking.png',
       alt: 'D.Ai 示範畫面：greet 預約收單中的日期、時間、人數與待確認狀態',
       label: '預約收單'
     },
     settings: {
-      title: '開啟接待前，先檢查入口',
-      copy: '查看 Mac 本機服務、LINE Webhook 與本地模型的設定狀態；正式上線仍需依店家環境驗證。',
+      title: '查看連線狀態',
+      copy: '查看 Mac 服務、LINE Webhook 與本地模型狀態；上線前須在店家環境驗證。',
       image: 'greet-dai-settings.png',
       alt: 'D.Ai 示範畫面：greet 連線與設定頁的本機服務、LINE 入口與模型項目',
       label: '連線與設定'
