@@ -248,7 +248,8 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
 <script>
 
 const stage=document.getElementById('stage'),bar=document.getElementById('bar');
-const scenes=[...document.querySelectorAll('.scene')], starts=[0,2400,8200,13800,20000,27200,31000], TOTAL=36200;
+// Keep entrance/typing timings; shorten scene holds for an overall 1.15x pace.
+const scenes=[...document.querySelectorAll('.scene')], starts=[0,2400,7400,11900,17300,23300,26800], TOTAL=31478;
 const text='我想要一個能線上點餐、自動回客人的系統。';
 const button=document.getElementById('play'), select=document.getElementById('scene-select'), status=document.getElementById('status');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -256,7 +257,7 @@ let elapsed=0, running=false, last=0, raf=0, current=-1, visible=true;
 function size(){const frame=document.getElementById('frame');const mobile=innerWidth<=700;const scale=mobile?Math.min(frame.clientWidth/390,frame.clientHeight/720):frame.clientWidth/1920;stage.style.transform='scale('+scale+')';stage.style.left=mobile?(frame.clientWidth-390*scale)/2+'px':'0'}
 function render(){let i=starts.findLastIndex(t=>elapsed>=t);if(i!==current){current=i;scenes.forEach((s,j)=>{s.classList.toggle('on',i===j);s.inert=i!==j;s.setAttribute('aria-hidden',String(i!==j))});select.value=i}
  document.getElementById('typed').textContent=current===3?text.slice(0,reduced.matches?text.length:Math.floor((elapsed-starts[3])/115)+1):'';
- bar.style.width=100*elapsed/TOTAL+'%';status.textContent=(running?'播放中':'已暫停')+' · '+Math.floor(elapsed/1000)+' / 36 秒';}
+ bar.style.width=100*elapsed/TOTAL+'%';status.textContent=(running?'播放中':'已暫停')+' · '+Math.floor(elapsed/1000)+' / '+(TOTAL/1000).toFixed(1)+' 秒';}
 function pause(){running=false;cancelAnimationFrame(raf);document.body.classList.add('paused');button.textContent='播放';render();stage.getAnimations({subtree:true}).forEach(a=>a.pause())}
 function tick(now){if(!running)return;elapsed=Math.min(TOTAL,elapsed+now-last);last=now;render();if(elapsed>=TOTAL){pause();status.textContent='播放完畢';return}raf=requestAnimationFrame(tick)}
 function play(){if(document.hidden||!visible)return;if(elapsed>=TOTAL)elapsed=0;running=true;document.body.classList.remove('paused');stage.getAnimations({subtree:true}).forEach(a=>a.play());button.textContent='暫停';last=performance.now();raf=requestAnimationFrame(tick);render()}
