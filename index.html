@@ -52,12 +52,17 @@
 .needs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:24px 0 32px}
 .need-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:28px;background:#f1f4fa;gap:14px}
 .need-card h3{font-size:24px;line-height:1.5}.need-card p{font-size:15px;line-height:1.8}.need-card a{margin-top:auto;min-height:44px;display:flex;align-items:center;color:var(--blue);font-weight:600}
+.hero-process>span{display:block}.hero-process .process-arrow{margin:4px 0;font-size:16px;line-height:1;color:var(--blue)}
 .needs-title{font-size:28px}
+.home-editorial .service-theater{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.home-editorial .service-story{align-self:start;min-height:420px}
+@media(min-width:701px) and (max-width:1000px){.home-editorial .service-theater{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
 .pricing-scope{margin-top:8px!important;font-size:12px!important;line-height:1.7!important;color:var(--muted)}
 .home-editorial .hero-bubble{margin:0 auto;max-width:780px;width:100%;grid-column:auto;grid-row:auto}
 .promo-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:700px){
 .promo-hero{padding-top:8px}
+.home-editorial .service-theater{grid-template-columns:minmax(0,1fr)}
 .hero-film{aspect-ratio:auto;height:min(680px,calc(100svh - 128px))}
 .needs-grid{grid-template-columns:1fr;gap:14px}.need-card{padding:24px}.need-card h3{font-size:22px}
 .home-editorial .hero{padding-top:32px;padding-bottom:40px}
@@ -92,7 +97,7 @@
         <div class="hero-grid page-shell">
           <div class="hero-copy">
             <div class="hero-bubble">
-              <p class="hero-lead">描述想法 → LINE 確認需求與報價 → 製作與驗收。</p>
+              <p class="hero-lead hero-process"><span>描述想法</span><span class="process-arrow" aria-hidden="true">↓</span><span>LINE 確認需求與報價</span><span class="process-arrow" aria-hidden="true">↓</span><span>製作與驗收。</span></p>
               <div class="hero-actions"><a class="button button-primary" href="#contact">聊聊我的需求<span class="button-arrow" aria-hidden="true">→</span></a></div>
             </div>
           </div>
@@ -109,15 +114,6 @@
             <article class="need-card"><h3>讓工作更順手</h3><p>從報告、資料整理到管理工具，依你現在的工作方式確認製作範圍。</p><a href="#contact">聊聊想改善的工作 ↗</a></article>
           </div>
           <div class="service-theater" data-service-theater>
-            <div class="service-story">
-              <p class="service-story-type" data-service-type>主要服務</p>
-              <h2 data-service-title>形象網站</h2>
-              <p class="service-story-lead" data-service-lead>讓訪客一眼看懂你的品牌。</p>
-              <p class="service-story-copy" data-service-copy>把品牌故事、服務與作品整理成清楚的頁面，讓訪客知道你提供什麼、如何聯絡。</p>
-              <div class="service-story-detail"><h3>可以做什麼</h3><p data-service-detail>品牌介紹・服務頁面・作品展示</p></div>
-              <a class="text-link service-story-cta" href="#portfolio" data-service-link>看網站範本 <span aria-hidden="true">↗</span></a>
-              <button class="text-link service-story-cta" type="button" data-service-demo="web" aria-haspopup="dialog" hidden>試試互動範例 <span aria-hidden="true">↗</span></button>
-            </div>
             <div class="service-stage-wrap">
               <div class="service-stage" role="group" aria-roledescription="輪播" aria-label="八項服務卡片，可使用左右方向鍵切換">
                 <button type="button" class="service-card service-card-website" data-service-card="website" data-title="形象網站" data-subtitle="品牌故事、服務、作品與聯絡方式" data-type="主要服務" data-lead="讓訪客一眼看懂你的品牌。" data-copy="把品牌故事、服務與作品整理成清楚的頁面，讓訪客知道你提供什麼、如何聯絡。" data-detail="品牌介紹・服務頁面・作品展示" data-link="#portfolio" data-cta="看網站範本" data-position="active" aria-label="選擇形象網站" aria-pressed="true">
@@ -170,6 +166,15 @@
                 </button>
               </div>
               <div class="service-stage-controls"><button type="button" data-service-prev aria-label="上一項服務">←</button><span data-service-count aria-live="polite" aria-atomic="true">01 / 08</span><button type="button" data-service-next aria-label="下一項服務">→</button></div>
+            </div>
+            <div class="service-story">
+              <p class="service-story-type" data-service-type>主要服務</p>
+              <h2 data-service-title>形象網站</h2>
+              <p class="service-story-lead" data-service-lead>讓訪客一眼看懂你的品牌。</p>
+              <p class="service-story-copy" data-service-copy>把品牌故事、服務與作品整理成清楚的頁面，讓訪客知道你提供什麼、如何聯絡。</p>
+              <div class="service-story-detail"><h3>可以做什麼</h3><p data-service-detail>品牌介紹・服務頁面・作品展示</p></div>
+              <a class="text-link service-story-cta" href="#portfolio" data-service-link>看網站範本 <span aria-hidden="true">↗</span></a>
+              <button class="text-link service-story-cta" type="button" data-service-demo="web" aria-haspopup="dialog" hidden>試試互動範例 <span aria-hidden="true">↗</span></button>
             </div>
             <div class="service-picker" role="group" aria-label="選擇服務" hidden style="display:none">
               <button type="button" data-service-pick="0" aria-pressed="true">形象網站</button>
