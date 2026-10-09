@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D.Ai — 你說，我造。</title>
+<style>
+:root{
+  --bg:#fbfcfd; --ink:#192c43; --mut:#536373; --lime:#304bd8; --line:#d9e0e7;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:#fbfcfd;overflow:hidden;}
+body{font-family:"Noto Sans TC","PingFang TC","Hiragino Sans CNS","Microsoft JhengHei",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;background:var(--bg);overflow:hidden;}
+/* ---------- background deco ---------- */
+#bgc{position:absolute;right:-320px;top:-320px;width:1100px;height:1100px;opacity:.055;animation:spin 90s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+/* ---------- persistent chrome ---------- */
+#topbar{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:46px 66px;font-size:30px;letter-spacing:.28em;font-weight:700;}
+#topbar .r{margin-left:auto;color:var(--mut);font-weight:500;}
+#bbar{position:absolute;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:42px 66px;font-size:23px;letter-spacing:.14em;color:var(--mut);}
+#prog{width:520px;height:3px;background:rgba(25,44,67,.16);border-radius:2px;overflow:hidden;}
+#bar{height:100%;width:0;background:var(--lime);}
+/* ---------- scenes ---------- */
+.scene{position:absolute;inset:0;padding:130px 160px 120px;opacity:0;pointer-events:none;transition:opacity .55s ease;z-index:5;}
+.scene.on{opacity:1;pointer-events:auto;}
+.kicker{font-size:26px;letter-spacing:.38em;color:var(--mut);margin-bottom:30px;font-weight:500;}
+.kicker b{color:var(--lime);font-weight:700;}
+.big{font-size:92px;font-weight:900;line-height:1.34;letter-spacing:.015em;}
+.big .ln{display:block;opacity:0;transform:translateY(48px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+.scene.on .ln{opacity:1;transform:none;}
+.scene.on .d1{transition-delay:.12s}.scene.on .d2{transition-delay:.34s}
+.scene.on .d3{transition-delay:.56s}.scene.on .d4{transition-delay:.78s}
+.hl{color:var(--lime);}
+.sub{margin-top:32px;font-size:36px;color:var(--mut);font-weight:500;letter-spacing:.06em;opacity:0;transform:translateY(30px);transition:all .7s ease .9s;}
+.scene.on .sub{opacity:1;transform:none;}
+/* s0 intro */
+#s0{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0;}
+#s0 .mark{font-size:64px;font-weight:900;letter-spacing:.3em;opacity:0;animation:fadeup .9s ease .3s forwards;}
+#s0 .arrow{margin-top:34px;font-size:34px;letter-spacing:.42em;color:var(--mut);opacity:0;animation:fadeup .9s ease 1s forwards;}
+#s0 .arrow b{color:var(--lime);}
+@keyframes fadeup{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+/* s1 notif pills */
+#npills{margin-top:40px;display:flex;flex-direction:row;gap:20px;}
+.npill{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:18px;padding:16px 30px;font-size:30px;font-weight:700;letter-spacing:.08em;width:fit-content;background:rgba(25,44,67,.03);opacity:0;transform:translateX(-40px);transition:all .6s ease;}
+#s1.on .npill{opacity:1;transform:none;}
+#s1.on .n1{transition-delay:.9s}#s1.on .n2{transition-delay:1.5s}#s1.on .n3{transition-delay:2.1s}
+.npill .dot{width:18px;height:18px;border-radius:50%;background:#ff5a5a;box-shadow:0 0 18px #ff5a5a;}
+.npill .cnt{color:var(--mut);font-size:28px;}
+/* s2 chips */
+#chips{margin-top:44px;display:flex;gap:28px;}
+.chip{border:2px solid var(--lime);color:var(--lime);border-radius:20px;padding:18px 42px;font-size:46px;font-weight:900;letter-spacing:.1em;opacity:0;transform:scale(.85);transition:all .55s cubic-bezier(.2,.9,.3,1.4);}
+#s2.on .chip{opacity:1;transform:none;}
+#s2.on .c1{transition-delay:1s}#s2.on .c2{transition-delay:1.35s}
+/* s3 chat */
+#chat{margin-top:48px;max-width:1240px;}
+.bubble{border:1px solid var(--line);border-radius:26px;padding:32px 44px;font-size:46px;font-weight:700;letter-spacing:.04em;background:rgba(25,44,67,.04);min-height:140px;}
+#typed::after{content:"▍";color:var(--lime);animation:blink 1s steps(1) infinite;font-size:46px;}
+@keyframes blink{50%{opacity:0;}}
+/* s4 phone */
+#s4wrap{display:flex;align-items:center;gap:110px;}
+.phone{width:392px;height:auto;min-height:720px;border:3px solid rgba(25,44,67,.28);border-radius:58px;background:#f0f3f6;padding:26px 24px;position:relative;flex:0 0 auto;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:130px;height:26px;background:#fbfcfd;border-radius:14px;border:1px solid rgba(25,44,67,.12);}
+.phead{text-align:center;font-size:32px;font-weight:900;letter-spacing:.2em;margin:26px 0 24px;}
+.pcard{border:1px solid var(--line);border-radius:20px;padding:18px 22px;margin-bottom:18px;background:rgba(25,44,67,.035);opacity:0;transform:translateY(46px);transition:all .6s ease;}
+#s4.on .pcard{opacity:1;transform:none;}
+#s4.on .p1{transition-delay:.7s}#s4.on .p2{transition-delay:1.25s}#s4.on .p3{transition-delay:1.8s}
+.pcard h4{font-size:27px;font-weight:900;color:var(--lime);letter-spacing:.14em;margin-bottom:14px;}
+.pcard .row{display:flex;justify-content:space-between;font-size:23px;color:var(--ink);padding:7px 0;letter-spacing:.04em;}
+.pcard .row span:last-child{color:var(--mut);}
+.pcard .msg{font-size:22px;padding:9px 16px;border-radius:14px;margin:7px 0;max-width:88%;line-height:1.5;}
+.pcard .msg.q{background:rgba(25,44,67,.09);align-self:flex-start;}
+.pcard .msg.a{background:rgba(48,75,216,.14);border:1px solid rgba(48,75,216,.4);margin-left:auto;text-align:right;}
+.pcard .st{font-size:22px;color:var(--lime);letter-spacing:.1em;}
+/* s6 end card */
+#s6{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0;}
+#s6 .mark{font-size:72px;font-weight:900;letter-spacing:.3em;opacity:0;animation:fadeup .9s ease .2s forwards;}
+#s6 .slogan{margin-top:44px;font-size:132px;font-weight:900;letter-spacing:.04em;opacity:0;animation:fadeup 1s ease .8s forwards;}
+#s6 .url{margin-top:36px;font-size:34px;letter-spacing:.24em;color:var(--mut);opacity:0;animation:fadeup 1s ease 1.5s forwards;}
+#s6 .hope{margin-top:22px;font-size:30px;letter-spacing:.2em;color:var(--mut);opacity:0;animation:fadeup 1s ease 1.9s forwards;}
+/* toast */
+#toast{position:absolute;left:50%;bottom:120px;transform:translateX(-50%);z-index:50;font-size:26px;letter-spacing:.2em;color:var(--mut);background:rgba(25,44,67,.06);border:1px solid var(--line);padding:16px 38px;border-radius:40px;animation:toast 4.5s ease forwards;pointer-events:none;white-space:nowrap;}
+@keyframes toast{0%{opacity:0;}8%{opacity:1;}75%{opacity:1;}100%{opacity:0;}}
+
+
+/* Official site palette and local responsive player */
+html,body{height:auto;min-height:100%;overflow:visible;background:var(--bg)}
+body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
+.player{max-width:1920px;margin:auto} #frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+#stage{transform-origin:top left} .brand-lockup{display:inline-flex;align-items:center;gap:22px;letter-spacing:0}
+.brand-lockup b{font-family:system-ui,sans-serif;font-weight:750;letter-spacing:-.055em}.brand-lockup img{width:96px;height:96px}
+#topbar .brand-lockup{gap:14px}#topbar img{width:48px;height:48px}
+#s0 .mark,#s6 .mark{font-size:86px;letter-spacing:0}#s0 .mark img,#s6 .mark img{width:132px;height:132px}
+#s0:not(.on) *,#s6:not(.on) *{animation:none!important}#prog{background:var(--line)}
+.phone .pcard:last-child{margin-bottom:0}.phone{border-color:var(--line);box-shadow:0 25px 70px rgba(25,44,67,.12)}.phone::before{background:var(--ink)}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 24px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+.controls button,.controls select{font:inherit;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:white;cursor:pointer}
+.controls #play{background:var(--lime);color:white;border-color:var(--lime)}:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.paused #stage *{animation-play-state:paused!important}.still #stage *{animation:none!important;transition:none!important}.still .on *{opacity:1!important;transform:none!important}
+@media(max-width:700px){
+#frame{aspect-ratio:auto;height:1120px}#stage{position:relative;width:100%;height:1120px}
+#topbar{padding:24px;font-size:13px;letter-spacing:.12em}#topbar img{width:38px;height:38px}#topbar b{font-size:24px}
+.scene{padding:118px 24px 110px}.kicker{font-size:13px;margin-bottom:24px}.big{font-size:clamp(29px,8.5vw,48px);line-height:1.5;letter-spacing:0}
+.sub{font-size:22px;line-height:1.7}.brand-lockup{gap:14px}#s0 .mark,#s6 .mark{font-size:58px}#s0 .mark img,#s6 .mark img{width:88px;height:88px}
+#s0 .arrow{font-size:18px;letter-spacing:.2em}#s6 .slogan{font-size:clamp(33px,10vw,64px);margin-top:32px}#s6 .url{font-size:18px;letter-spacing:.08em}#s6 .hope{font-size:18px;letter-spacing:0;padding:0 24px;line-height:1.6}
+#npills,#chips{flex-wrap:wrap;gap:12px;margin-top:26px}.npill{font-size:18px;padding:12px 18px;letter-spacing:0}.npill .cnt{font-size:18px}.npill .dot{width:10px;height:10px}.chip{font-size:26px;padding:14px 20px}
+#chat{margin-top:28px}.bubble{font-size:24px;padding:24px;line-height:1.6;min-height:180px}#typed::after{font-size:24px}
+#s4wrap{flex-direction:column;align-items:flex-start;gap:28px}.phone{width:min(100%,340px);height:auto;min-height:540px;border-radius:32px;padding:24px 18px;margin:auto}.phead{font-size:24px}.pcard{padding:12px 14px;margin-bottom:12px}.pcard h4{font-size:20px}.pcard .row{font-size:16px}.pcard .msg{font-size:16px;max-width:100%;padding:8px}.pcard .st{font-size:16px}
+#bbar{padding:24px;gap:16px;flex-direction:column;align-items:flex-start;font-size:13px;letter-spacing:0}#prog{width:100%}#bgc{width:700px;height:700px;right:-450px}
+.controls{padding:16px;gap:8px}#status{width:100%}
+}
+@media(prefers-reduced-motion:reduce){#stage *{animation:none!important;transition:none!important}.scene.on *{opacity:1!important;transform:none!important}}
+
+.clean .controls,.clean #bbar{display:none}.clean #stage{cursor:pointer}.clean #stage:focus-visible{outline:3px solid #304bd8;outline-offset:-6px}
+
+/* Compact mobile canvas fits the first viewport without cropping scenes. */
+@media(max-width:700px){
+#frame{height:min(680px,100svh);aspect-ratio:auto}
+#stage{position:absolute;width:390px;height:720px;transform-origin:top left}
+#topbar{padding:16px 22px;font-size:12px}
+.scene{padding:58px 22px 22px}.kicker{font-size:12px;margin-bottom:14px}
+.big{font-size:34px;line-height:1.4}.sub{font-size:20px;line-height:1.6;margin-top:22px}
+#npills,#chips{gap:10px;margin-top:24px}.npill{font-size:17px;padding:10px 14px}.chip{font-size:24px;padding:12px 18px}
+#chat{margin-top:24px}.bubble{font-size:23px;padding:20px;min-height:160px}
+#s4wrap{gap:16px}.phone{width:284px;min-height:0;border-radius:30px;padding:20px 14px 14px}
+.phone::before{top:12px;width:92px;height:16px}.phead{font-size:20px;margin:20px 0 14px}
+.pcard{padding:10px 12px;margin-bottom:10px;border-radius:16px}.pcard h4{font-size:17px;margin-bottom:8px}
+.pcard .row{font-size:14px;padding:4px 0}.pcard .msg{font-size:14px;padding:6px 8px;margin:5px 0}.pcard .st{font-size:14px}
+#s6 .slogan{font-size:40px}#s6 .hope{font-size:17px}
+}
+</style>
+<noscript><style>
+#stage{position:static;margin:0;scale:1;width:100%;height:auto;overflow:visible;}
+#bgc,#toast,#prog{display:none;}
+#topbar,#bbar{position:static;}
+.scene{position:static;opacity:1;padding:56px 7vw;}
+#s0,#s6{padding:64px 7vw;text-align:left;align-items:flex-start;justify-content:flex-start;}
+#s0 .mark,#s0 .arrow,#s6 .mark,#s6 .slogan,#s6 .url,#s6 .hope{animation:none;opacity:1;}
+.big{font-size:8.5vw;}
+.big .ln,.sub,.npill,.chip,.pcard{opacity:1 !important;transform:none !important;}
+#typed::after{display:none;}
+#typed::before{content:"我想要一個能線上點餐、自動回客人的系統。";}
+#s4wrap{flex-direction:column;align-items:flex-start;}
+.phone{width:100%;max-width:430px;height:auto;}
+</style></noscript>
+</head>
+<body class="paused still">
+<main class="player" aria-label="D.Ai 品牌概念動畫"><div id="frame">
+<div id="stage">
+  <svg id="bgc" viewBox="0 0 1000 1000" fill="none" stroke="#192c43" stroke-width="1.5">
+    <circle cx="500" cy="500" r="120"/><circle cx="500" cy="500" r="210"/>
+    <circle cx="500" cy="500" r="300"/><circle cx="500" cy="500" r="390"/>
+    <circle cx="500" cy="500" r="480"/><line x1="500" y1="0" x2="500" y2="1000"/><line x1="0" y1="500" x2="1000" y2="500"/>
+  </svg>
+
+  <div id="topbar"><span class="r">IDEAS → TOOLS</span></div>
+
+  <section class="scene" id="s0">
+    <div class="mark"><span class="brand-lockup"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkQuQWkg5ZOB54mM5qiZ6KqMPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+5aKo6JeN5bel56iL5ZyW57SZ5YiH6KeS5Lit77yM5Lul55m96Imy5bm+5L2V5a2X5q+NIEQg5ZKM6JeN6Imy5rWB56iL56+A6bue57WE5oiQ55qE5qiZ6KqM44CCPC9kZXNjPgogIDxwYXRoIGZpbGw9IiMxNDI0M0EiIGQ9Ik0yMiA0aDM4bDMyIDMydjM4YTE4IDE4IDAgMCAxLTE4IDE4SDIyQTE4IDE4IDAgMCAxIDQgNzRWMjJBMTggMTggMCAwIDEgMjIgNFoiLz4KICA8cGF0aCBmaWxsPSIjMjQzOTU3IiBkPSJNNjAgNHYxN2ExNSAxNSAwIDAgMCAxNSAxNWgxN0w2MCA0WiIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTI0IDIyaDIyYzE4IDAgMzAgMTIgMzAgMzFTNjQgODQgNDYgODRIMjRWMjJabTE0IDEzdjM2aDhjMTAgMCAxNi02IDE2LTE4cy02LTE4LTE2LTE4aC04WiIvPgogIDxwYXRoIGQ9Ik00MiA1N2g3bDctN2gzIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMTU3RjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzLjUiLz4KICA8Y2lyY2xlIGN4PSI2MSIgY3k9IjUwIiByPSIzLjIiIGZpbGw9IiMzMTU3RjYiLz4KPC9zdmc+Cg==" alt="" width="96" height="96"><b><span>D.</span><span class="hl">Ai</span></b></span></div>
+    <div class="arrow">IDEAS <b>→</b> TOOLS</div>
+  </section>
+
+  <section class="scene" id="s1">
+    <div class="kicker"><b>01</b> / THE PAIN</div>
+    <div class="big">
+      <span class="ln d1">每天，</span>
+      <span class="ln d2">都有同樣的問題。</span>
+      <span class="ln d3"><span class="hl">電話接不完。</span></span>
+      <span class="ln d4">客人，還是跑掉。</span>
+    </div>
+    <div id="npills">
+      <div class="npill n1"><span class="dot"></span>未接來電 <span class="cnt">×3</span></div>
+      <div class="npill n2"><span class="dot"></span>未接來電 <span class="cnt">×7</span></div>
+      <div class="npill n3"><span class="dot"></span>未接來電 <span class="cnt">×12</span></div>
+    </div>
+  </section>
+
+  <section class="scene" id="s2">
+    <div class="kicker"><b>02</b> / THE WALL</div>
+    <div class="big">
+      <span class="ln d1">想做線上點餐？</span>
+      <span class="ln d2">找工程師，</span>
+      <span class="ln d3">要<span class="hl">三個月</span>、<span class="hl">幾十萬</span>。</span>
+    </div>
+    <div id="chips">
+      <div class="chip c1">3 個月</div>
+      <div class="chip c2">幾十萬</div>
+    </div>
+  </section>
+
+  <section class="scene" id="s3">
+    <div class="kicker"><b>03</b> / SAY IT</div>
+    <div class="big">
+      <span class="ln d1">如果，</span>
+      <span class="ln d2"><span class="hl">只要說出來？</span></span>
+    </div>
+    <div id="chat"><div class="bubble"><span id="typed"></span></div></div>
+  </section>
+
+  <section class="scene" id="s4">
+    <div id="s4wrap">
+      <div>
+        <div class="kicker"><b>04</b> / TAKE SHAPE</div>
+        <div class="big">
+          <span class="ln d1">從一句話，</span>
+          <span class="ln d2"><span class="hl">開始成形。</span></span>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phead">美味小館</div>
+        <div class="pcard p1"><h4>線上點餐</h4>
+          <div class="row"><span>滷肉飯</span><span>60 元</span></div>
+          <div class="row"><span>牛肉麵</span><span>90 元</span></div>
+          <div class="row"><span>燙青菜</span><span>40 元</span></div>
+        </div>
+        <div class="pcard p2"><h4>AI 客服</h4>
+          <div class="msg q">營業到幾點？</div>
+          <div class="msg a">11:00–14:00，17:00–20:30</div>
+        </div>
+        <div class="pcard p3"><h4>訂單管理</h4>
+          <div class="row"><span>#031 滷肉飯 ×2</span><span class="st">製作中</span></div>
+          <div class="row"><span>#032 牛肉麵 ×1</span><span class="st">已完成</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" id="s5">
+    <div class="kicker"><b>05</b> / YOUR SHAPE</div>
+    <div class="big">
+      <span class="ln d1">點餐、客服，</span>
+      <span class="ln d2"><span class="hl">自己運轉。</span></span>
+    </div>
+    <div class="sub">讓工具，長成你的樣子。</div>
+  </section>
+
+  <section class="scene" id="s6">
+    <div class="mark"><span class="brand-lockup"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkQuQWkg5ZOB54mM5qiZ6KqMPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+5aKo6JeN5bel56iL5ZyW57SZ5YiH6KeS5Lit77yM5Lul55m96Imy5bm+5L2V5a2X5q+NIEQg5ZKM6JeN6Imy5rWB56iL56+A6bue57WE5oiQ55qE5qiZ6KqM44CCPC9kZXNjPgogIDxwYXRoIGZpbGw9IiMxNDI0M0EiIGQ9Ik0yMiA0aDM4bDMyIDMydjM4YTE4IDE4IDAgMCAxLTE4IDE4SDIyQTE4IDE4IDAgMCAxIDQgNzRWMjJBMTggMTggMCAwIDEgMjIgNFoiLz4KICA8cGF0aCBmaWxsPSIjMjQzOTU3IiBkPSJNNjAgNHYxN2ExNSAxNSAwIDAgMCAxNSAxNWgxN0w2MCA0WiIvPgogIDxwYXRoIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTI0IDIyaDIyYzE4IDAgMzAgMTIgMzAgMzFTNjQgODQgNDYgODRIMjRWMjJabTE0IDEzdjM2aDhjMTAgMCAxNi02IDE2LTE4cy02LTE4LTE2LTE4aC04WiIvPgogIDxwYXRoIGQ9Ik00MiA1N2g3bDctN2gzIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMTU3RjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzLjUiLz4KICA8Y2lyY2xlIGN4PSI2MSIgY3k9IjUwIiByPSIzLjIiIGZpbGw9IiMzMTU3RjYiLz4KPC9zdmc+Cg==" alt="" width="96" height="96"><b><span>D.</span><span class="hl">Ai</span></b></span></div>
+    <div class="slogan">你說，<span class="hl">我造。</span></div>
+    <div class="url">d-ai-studio.com</div>
+    <div class="hope">讓更多人，創造自己的可能。</div>
+  </section>
+
+  <div id="bbar"><span>概念示意</span><div id="prog"><div id="bar"></div></div></div>
+
+</div>
+
+</div><div class="controls"><button id="play" type="button">播放</button><button id="replay" type="button">重播</button><label>場景 <select id="scene-select" aria-label="選擇動畫場景"><option value="0">1 / 開始</option><option value="1">2 / 每天的問題</option><option value="2">3 / 開發門檻</option><option value="3">4 / 說出想法</option><option value="4">5 / 開始成形</option><option value="5">6 / 你的工具</option><option value="6">7 / 你說，我造</option></select></label><span id="status" role="status">待播放</span></div></main>
+<script>
+
+const stage=document.getElementById('stage'),bar=document.getElementById('bar');
+const scenes=[...document.querySelectorAll('.scene')], starts=[0,2400,8200,13800,20000,27200,31000], TOTAL=36200;
+const text='我想要一個能線上點餐、自動回客人的系統。';
+const button=document.getElementById('play'), select=document.getElementById('scene-select'), status=document.getElementById('status');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let elapsed=0, running=false, last=0, raf=0, current=-1, visible=true;
+function size(){const frame=document.getElementById('frame');const mobile=innerWidth<=700;const scale=mobile?Math.min(frame.clientWidth/390,frame.clientHeight/720):frame.clientWidth/1920;stage.style.transform='scale('+scale+')';stage.style.left=mobile?(frame.clientWidth-390*scale)/2+'px':'0'}
+function render(){let i=starts.findLastIndex(t=>elapsed>=t);if(i!==current){current=i;scenes.forEach((s,j)=>{s.classList.toggle('on',i===j);s.inert=i!==j;s.setAttribute('aria-hidden',String(i!==j))});select.value=i}
+ document.getElementById('typed').textContent=current===3?text.slice(0,reduced.matches?text.length:Math.floor((elapsed-starts[3])/115)+1):'';
+ bar.style.width=100*elapsed/TOTAL+'%';status.textContent=(running?'播放中':'已暫停')+' · '+Math.floor(elapsed/1000)+' / 36 秒';}
+function pause(){running=false;cancelAnimationFrame(raf);document.body.classList.add('paused');button.textContent='播放';render();stage.getAnimations({subtree:true}).forEach(a=>a.pause())}
+function tick(now){if(!running)return;elapsed=Math.min(TOTAL,elapsed+now-last);last=now;render();if(elapsed>=TOTAL){pause();status.textContent='播放完畢';return}raf=requestAnimationFrame(tick)}
+function play(){if(document.hidden||!visible)return;if(elapsed>=TOTAL)elapsed=0;running=true;document.body.classList.remove('paused');stage.getAnimations({subtree:true}).forEach(a=>a.play());button.textContent='暫停';last=performance.now();raf=requestAnimationFrame(tick);render()}
+button.onclick=()=>running?pause():play();document.getElementById('replay').onclick=()=>{pause();elapsed=0;current=-1;render();play()};
+select.onchange=()=>{const chosen=Number(select.value);pause();elapsed=starts[chosen];document.body.classList.add('still');render()};
+button.addEventListener('click',()=>document.body.classList.remove('still'));document.getElementById('replay').addEventListener('click',()=>document.body.classList.remove('still'));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
+new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(!visible)pause()},{threshold:.15}).observe(document.getElementById('frame'));
+reduced.addEventListener('change',()=>{pause();render()});window.addEventListener('resize',size);size();const requested=new URLSearchParams(location.search).get('scene');if(requested!==null&&/^([0-6])$/.test(requested)){elapsed=starts[Number(requested)];}render();pause();
+const inspectMode=new URLSearchParams(location.search).get('controls')==='1';
+if(!inspectMode){document.body.classList.add('clean');stage.tabIndex=0;stage.setAttribute('role','button');stage.setAttribute('aria-label','D.Ai 品牌動畫：點擊或按空白鍵暫停、繼續；播放完畢後重播');
+const toggle=()=>{document.body.classList.remove('still');if(running)pause();else play()};stage.onclick=toggle;stage.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}};
+if(requested===null){if(reduced.matches){elapsed=starts[6];render()}else{document.body.classList.remove('still');play()}}
+}
+</script>
+</body>
+</html>

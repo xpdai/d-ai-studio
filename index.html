@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="en" href="https://d-ai-studio.com/en/" />
     <link rel="alternate" hreflang="x-default" href="https://d-ai-studio.com/" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="D.AI｜形象網站與 AI 客服" />
+    <meta property="og:title" content="D.Ai｜形象網站與 AI 客服" />
     <meta
       property="og:description"
       content="D.Ai 做設計，也做開發。從品牌網站到工作上需要的工具，把想法一步步做出來。"
@@ -34,7 +34,7 @@
         }
       }
     </script>
-    <title>D.AI｜形象網站與 AI 客服</title>
+    <title>D.Ai｜形象網站與 AI 客服</title>
     <link rel="icon" href="assets/logo-mark.svg?v=3" type="image/svg+xml" sizes="any" />
     <link rel="icon" href="assets/logo-mark.png?v=3" type="image/png" sizes="512x512" />
     <link rel="shortcut icon" href="assets/logo-mark.png?v=3" type="image/png" />
@@ -42,7 +42,21 @@
     <script>
       document.documentElement.classList.add('js');
     </script>
-  </head>
+  <style>
+.promo-hero{padding-top:54px;padding-bottom:0}
+.hero-film{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:12px}
+.home-editorial .hero{padding-top:32px;padding-bottom:70px}
+.home-editorial .hero-grid{display:block;min-height:0;padding-block:0}
+.home-editorial .hero-copy{display:block}
+.home-editorial .hero-bubble{margin:0 auto;max-width:780px;width:100%;grid-column:auto;grid-row:auto}
+.promo-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){
+.promo-hero{padding-top:8px}
+.hero-film{aspect-ratio:auto;height:min(680px,calc(100svh - 128px))}
+.home-editorial .hero{padding-top:32px;padding-bottom:40px}
+.home-editorial .hero-bubble{max-width:100%;padding:24px}
+}
+</style></head>
   <body class="home-editorial">
     <a class="skip-link" href="#main-content">跳至主要內容</a>
 
@@ -56,7 +70,7 @@
           </span>
         </a>
 
-        <nav class="main-nav" aria-label="主要導覽"><a href="#portfolio">作品</a><a href="#mvp-services">服務</a><a href="#contact">聯絡</a><a class="lang-switch" href="/en/" lang="en" aria-label="Switch to English">EN</a></nav>
+        <nav class="main-nav" aria-label="主要導覽"><a href="#portfolio">作品</a><a href="#mvp-services">服務</a><a href="#contact">聯絡</a></nav>
 
         <a class="header-cta" href="#contact">
           聊聊需求
@@ -66,15 +80,13 @@
     </header>
 
     <main id="main-content">
-      <section class="hero" id="top">
+      <h1 class="promo-sr-only">D.Ai — 你說，我造。</h1><section class="promo-hero" id="brand-preview" aria-label="D.Ai 品牌動畫"><div class="page-shell"><iframe class="hero-film" title="D.Ai 品牌動畫，可點擊暫停或重播" src="dai-promo-animation.html?v=20261010"></iframe></div></section>
+<section class="hero" id="top">
         <div class="hero-grid page-shell">
           <div class="hero-copy">
-            <h1 class="hero-title"><span class="hero-title-accent">設</span>計<span class="hero-title-join">x</span>開<span class="hero-title-accent">發</span></h1>
             <div class="hero-bubble">
-              <p class="hero-lead">D.Ai 做設計，也做開發。從品牌網站到工作上需要的工具，我們把你的想法一步步做出來，讓每個細節都貼近實際使用。</p>
+              <p class="hero-lead">從品牌網站到工作上需要的工具，我們把你的想法一步步做出來，讓每個細節都貼近實際使用。</p>
               <div class="hero-actions"><a class="button button-primary" href="#contact">聊聊你的需求<span class="button-arrow" aria-hidden="true">→</span></a></div>
-              <svg class="hero-bubble-tail hero-bubble-tail-side" viewBox="0 0 150 72" preserveAspectRatio="none" aria-hidden="true"><rect x="139" y="17" width="14" height="38" /><path d="M146 18 C118 23 54 31 4 36 C56 41 118 50 146 54" /></svg>
-              <svg class="hero-bubble-tail hero-bubble-tail-up" viewBox="0 0 72 52" aria-hidden="true"><rect x="23" y="0" width="45" height="15" /><path d="M24 10 C23 26 17 38 5 48 C32 43 54 27 67 10" /></svg>
             </div>
           </div>
 
@@ -146,7 +158,7 @@
               </div>
               <div class="service-stage-controls"><button type="button" data-service-prev aria-label="上一項服務">←</button><span data-service-count aria-live="polite" aria-atomic="true">01 / 08</span><button type="button" data-service-next aria-label="下一項服務">→</button></div>
             </div>
-            <div class="service-picker" role="group" aria-label="選擇服務">
+            <div class="service-picker" role="group" aria-label="選擇服務" hidden style="display:none">
               <button type="button" data-service-pick="0" aria-pressed="true">形象網站</button>
               <button type="button" data-service-pick="1" aria-pressed="false">greet（AI 客服）</button>
               <button type="button" data-service-pick="2" aria-pressed="false">網站與 Web App</button>
