@@ -128,6 +128,23 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
 .pcard .row{font-size:14px;padding:4px 0}.pcard .msg{font-size:14px;padding:6px 8px;margin:5px 0}.pcard .st{font-size:14px}
 #s6 .slogan{font-size:40px}#s6 .hope{font-size:17px}
 }
+
+#topbar,.arrow{display:none}
+/* Mobile scene composition: stable canvas, balanced content instead of top-heavy text. */
+.shape-flow{display:none}
+@media(max-width:700px){
+#s1,#s2,#s3,#s5{display:flex;flex-direction:column;justify-content:center;padding:74px 22px 44px}
+#s1 #npills{display:flex;flex-direction:column;gap:12px;margin-top:30px;width:100%}
+#s1 .npill{width:100%;min-height:58px;padding:13px 18px;font-size:20px;border-radius:14px;background:#f1f4fa}
+#s1 .npill .cnt{margin-left:auto;font-size:23px}
+#s2 #chips{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+#s2 .chip{width:100%;min-height:86px;display:flex;align-items:center;padding:20px 24px;font-size:27px;border:1px solid var(--line);border-left:4px solid var(--lime);background:#f1f4fa;letter-spacing:.04em}
+#s3 #chat{margin-top:32px;width:100%}
+#s3 .bubble{display:flex;align-items:center;min-height:226px;padding:30px 25px;font-size:26px;line-height:1.8;letter-spacing:0}
+#s3 #typed::after{font-size:26px}
+#s5 .sub{margin-top:24px}
+#s5 .shape-flow{display:block;width:100%;height:176px;margin-top:30px;flex:0 0 auto}
+}
 </style>
 <noscript><style>
 #stage{position:static;margin:0;scale:1;width:100%;height:auto;overflow:visible;}
@@ -161,7 +178,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
   </section>
 
   <section class="scene" id="s1">
-    <div class="kicker"><b>01</b> / THE PAIN</div>
+    <div class="kicker"><b>01</b><span hidden> / THE PAIN</span></div>
     <div class="big">
       <span class="ln d1">每天，</span>
       <span class="ln d2">都有同樣的問題。</span>
@@ -176,7 +193,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
   </section>
 
   <section class="scene" id="s2">
-    <div class="kicker"><b>02</b> / THE WALL</div>
+    <div class="kicker"><b>02</b><span hidden> / THE WALL</span></div>
     <div class="big">
       <span class="ln d1">想做線上點餐，</span>
       <span class="ln d2"><span class="hl">卻不知道從哪開始？</span></span>
@@ -188,7 +205,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
   </section>
 
   <section class="scene" id="s3">
-    <div class="kicker"><b>03</b> / SAY IT</div>
+    <div class="kicker"><b>03</b><span hidden> / SAY IT</span></div>
     <div class="big">
       <span class="ln d1">先從，</span>
       <span class="ln d2"><span class="hl">說出你的想法。</span></span>
@@ -199,7 +216,7 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
   <section class="scene" id="s4">
     <div id="s4wrap">
       <div>
-        <div class="kicker"><b>04</b> / TAKE SHAPE</div>
+        <div class="kicker"><b>04</b><span hidden> / TAKE SHAPE</span></div>
         <div class="big">
           <span class="ln d1">從一句話，</span>
           <span class="ln d2"><span class="hl">開始成形。</span></span>
@@ -225,12 +242,18 @@ body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,san
   </section>
 
   <section class="scene" id="s5">
-    <div class="kicker"><b>05</b> / YOUR SHAPE</div>
+    <div class="kicker"><b>05</b><span hidden> / YOUR SHAPE</span></div>
     <div class="big">
       <span class="ln d1">點餐、客服，</span>
       <span class="ln d2"><span class="hl">照你的流程設計。</span></span>
     </div>
     <div class="sub">讓工具，長成你的樣子。</div>
+    <svg class="shape-flow" viewBox="0 0 346 176" aria-hidden="true" focusable="false" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M55 89H291" stroke="#d9e0e7" stroke-width="3"/>
+      <g fill="#f1f4fa" stroke="#d9e0e7" stroke-width="1.5"><rect x="14" y="46" width="82" height="86" rx="20"/><rect x="132" y="46" width="82" height="86" rx="20"/><rect x="250" y="46" width="82" height="86" rx="20"/></g>
+      <g stroke="#304bd8" stroke-width="2.8"><circle cx="55" cy="89" r="18"/><path d="M36 63v13m6-13v13m-3 0v35m33-47v47m-4-42v12h4"/><path d="M149 73h48v28h-28l-12 10v-10h-8z"/><path d="M272 68h32v45h-32zM281 80h15M281 90h15M281 100h9"/></g>
+      <g fill="#304bd8"><circle cx="161" cy="86" r="2"/><circle cx="174" cy="86" r="2"/><circle cx="187" cy="86" r="2"/></g>
+    </svg>
   </section>
 
   <section class="scene" id="s6">
