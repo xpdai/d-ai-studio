@@ -6,7 +6,7 @@
   const screens = {
     overview: {
       title: '先看待處理的事',
-      copy: '首頁列出待回覆對話、預約需求與連線狀態。',
+      copy: '查看待回覆對話與連線狀態，重要需求由店家查看後處理。',
       image: 'greet-dai-home.png',
       alt: 'D.Ai 示範畫面：greet 首頁的接待進度與待確認需求',
       label: '首頁'
@@ -19,18 +19,18 @@
       label: '顧客對話'
     },
     faq: {
-      title: '答案核准後才使用',
-      copy: '整理 FAQ 與參考文件，可先試聊或預覽 CSV；正式答案由你核准。',
+      title: '先整理內容，再測試回覆',
+      copy: '把營業時間、服務說明與常見問題整理成 FAQ，再試聊核對回覆。D.Ai 協助你確認內容與上線範圍。',
       image: 'greet-dai-faq.png',
       alt: 'D.Ai 示範畫面：greet 知識庫的 FAQ、試聊與文件工具',
       label: '知識庫'
     },
     bookings: {
-      title: '先收需求，再由你確認',
-      copy: '收集日期、時間與人數。你接受或婉拒後才通知顧客；目前不是已成立的預約。',
+      title: '重要需求，由真人確認',
+      copy: '此頁為諮詢流程示意。日期、時間、人數與報價由店家確認；自動追問、結構化交接或預約系統串接，需在導入時另行評估。',
       image: 'greet-dai-booking.png',
-      alt: 'D.Ai 示範畫面：greet 預約收單中的日期、時間、人數與待確認狀態',
-      label: '預約收單'
+      alt: 'D.Ai 概念示意畫面：諮詢日期、時間、人數與待確認狀態',
+      label: '需求確認'
     },
     settings: {
       title: '查看連線狀態',
