@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="D.Ai Greet Social Facebook 授權試用的隱私說明。">
+  <meta name="theme-color" content="#fbfcfd">
+  <title>隱私說明｜D.Ai</title>
+  <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<header><div class="shell header"><div class="brand" aria-label="D.Ai">D.<span>Ai</span></div><nav aria-label="政策導覽"><a href="privacy.html" aria-current="page">隱私說明</a><a href="data-deletion.html">資料刪除</a></nav></div></header>
+<main id="main" class="shell">
+  <p class="meta">Greet Social Trial · 發布及生效日期：2026 年 10 月 14 日</p>
+  <h1>隱私說明</h1>
+  <p class="notice"><strong>限 D.Ai 自有 Facebook Page 內部試用；不對外提供服務。</strong></p>
+
+  <h2>適用範圍與營運者</h2>
+  <p>本說明僅適用於 D.Ai 自有 Facebook 專頁的 Greet Social Trial 內部授權試用，不適用於外部客戶或其他 D.Ai 服務。營運者為軍諺整合行銷有限公司（D.Ai），聯絡信箱：<a href="mailto:dai@d-ai-studio.com">dai@d-ai-studio.com</a>。</p>
+  <p>目前試用範圍為 Facebook 授權與連線驗證。Threads 連線停用，內容讀取與發布功能不在本次試用範圍；發布功能另受獨立後端設定停用。本試用不會代表您發布貼文或回覆留言。</p>
+
+  <h2>處理的資料與用途</h2>
+  <ul>
+    <li><strong>裝置與授權流程資料：</strong>裝置識別、公鑰、註冊／挑戰資訊、短期工作階段及授權流程狀態，用於確認這是已登錄試用裝置並完成 Facebook 授權。</li>
+    <li><strong>Facebook 連線資料：</strong>Facebook 帳號或專頁識別資訊、名稱、授權狀態與範圍、到期資訊及加密後的存取憑證，用於辨認這次試用所連接的自有專頁並維持授權狀態。</li>
+    <li><strong>操作與安全紀錄：</strong>授權嘗試、工作階段、連線狀態、操作識別碼、狀態與結果識別資訊，用於試用運作、錯誤排查、安全控管及處理刪除／撤銷通知。操作紀錄不以保存貼文或留言本文為目的。</li>
+    <li><strong>本機試用資料：</strong>App 在試用資料夾保存的資料及專用 Keychain 項目，用於試用裝置識別與本機資料保護。現有流程可能有試用草稿或歷史資料；雲端刪除不會清除它們。</li>
+    <li><strong>聯絡請求資料：</strong>您寄至聯絡信箱的內容及為核實請求而提供的必要資訊，用於回覆授權、隱私或刪除請求。</li>
+  </ul>
+  <p>請勿以電子郵件傳送密碼、Facebook 存取憑證、裝置私鑰或其他秘密。請求核實時只提供必要的公開專頁識別資訊及請求範圍。</p>
+
+  <h2>處理方式與服務位置</h2>
+  <p>授權後端使用 Cloudflare Workers 與 Cloudflare D1。試用資料庫已配置於 EU jurisdiction；這只描述資料庫的 jurisdiction 設定，不表示 Worker 運算、跨區傳輸、所有服務或所有日誌都只在歐盟。GitHub Pages 僅承載這些靜態政策頁，適用其自身的網站/CDN處理與日誌，並非試用資料庫。</p>
+  <p>Facebook 授權與平台通知由 Meta 服務處理。Cloudflare、Meta、GitHub Pages 或其他服務可能依其服務運作產生基礎設施或平台日誌；應用程式未主動記錄請求本文、憑證或完整請求網址，不代表基礎設施或平台沒有日誌。資料處理者自身的日誌種類與保存期限依各服務設定及條款而定。</p>
+  <p>後端平台憑證以加密形式保存，主金鑰使用 Worker Secrets 管理。程式安全措施不代表已完成獨立安全稽核，也不保證絕對安全。</p>
+
+  <h2>保存與刪除</h2>
+  <p>授權碼、挑戰與工作階段有短期有效期限；到期會失去授權用途，但到期不等於資料立即從資料庫或備份實體清除。試用期間沒有自動資料清除排程，也沒有對資料庫記錄或備份承諾固定的 7、30 或 90 日實體刪除期限。資料可能在營運者進行人工維護、完成刪除請求或其他必要處理前繼續保留。營運者會在試用結束時或收到刪除請求時檢視相關資料並進行適用的人工清理。</p>
+  <p>目前使用的 Cloudflare D1 Free 方案提供滾動 7 天 Time Travel 備份；資料從有效資料庫刪除後，仍可能在備份到期前存在。此備份期限不是所有資料的固定刪除期限，也不代表其他服務日誌或 GitHub Pages 資料適用同一期限。</p>
+  <p>有效期限限制資料能否繼續用於授權操作；它不代表底層資料已刪除。已簽章的平台刪除通知在完成驗證及帳號對應後，會移除對應連線、憑證、授權嘗試、操作紀錄與受影響工作階段。裝置、公鑰、挑戰／註冊資料及最少量的回條或撤銷防重放紀錄未必由該通知一併移除，仍可能需要人工清理。回條的 30 天查詢效期只是邏輯有效期限，不是所有關聯資料的實體刪除承諾。平台回呼已設定保存；實際 Meta 端到端運作仍待驗證。</p>
+
+  <h2>您的選擇與權利</h2>
+  <p>您可選擇是否授權及何時撤銷 Facebook 授權，也可聯絡營運者查詢、更正或要求刪除由本試用處理的資料。解除連線會阻止該連線後續使用並移除有效憑證；不一定清除所有識別、操作、裝置、本機或備份資料。完整流程請見<a href="data-deletion.html">資料刪除說明</a>。</p>
+
+  <h2>聯絡營運者</h2>
+  <p>請寄信至 <a href="mailto:dai@d-ai-studio.com">dai@d-ai-studio.com</a>，說明 Facebook 專頁公開識別資訊、請求範圍及您希望營運者採取的處理。營運者會依個案核實權限並以電子郵件人工回覆；本頁不承諾未經確認的自動處理或固定完成時限。</p>
+</main>
+<footer><div class="shell">D.Ai｜軍諺整合行銷有限公司 · <a href="mailto:dai@d-ai-studio.com">dai@d-ai-studio.com</a></div></footer>
+</body>
+</html>

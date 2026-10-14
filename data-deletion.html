@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="D.Ai Greet Social Facebook 授權試用的資料刪除方式。">
+  <meta name="theme-color" content="#fbfcfd">
+  <title>資料刪除｜D.Ai</title>
+  <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<header><div class="shell header"><div class="brand" aria-label="D.Ai">D.<span>Ai</span></div><nav aria-label="政策導覽"><a href="privacy.html">隱私說明</a><a href="data-deletion.html" aria-current="page">資料刪除</a></nav></div></header>
+<main id="main" class="shell">
+  <p class="meta">Greet Social Trial · 發布及生效日期：2026 年 10 月 14 日</p>
+  <h1>資料刪除說明</h1>
+  <p class="notice"><strong>限 D.Ai 自有 Facebook Page 內部試用；不對外提供服務。</strong></p>
+
+  <h2>適用範圍</h2>
+  <p>本說明只處理 D.Ai 自有 Facebook 專頁的 Greet Social Trial 內部授權試用資料，不適用於外部客戶、其他 D.Ai 服務或 Facebook／Meta 帳號本身。營運者為軍諺整合行銷有限公司（D.Ai）。</p>
+
+  <h2>以電子郵件提出請求</h2>
+  <p>請寄信至 <a href="mailto:dai@d-ai-studio.com">dai@d-ai-studio.com</a>，並提供：</p>
+  <ul>
+    <li>平台名稱（Facebook）；</li>
+    <li>公開專頁名稱或 Page ID；</li>
+    <li>希望處理的範圍，例如解除該專頁連線、刪除雲端試用資料、本機資料清除指引，或全部適用項目。</li>
+  </ul>
+  <p>請勿提供密碼、存取憑證、App Secret、裝置私鑰或其他秘密。若您只知道自己的寄件地址，仍請提供專頁公開識別資訊；寄件地址本身不能證明您有權管理該專頁。</p>
+  <p>營運者會比對試用中的授權對應資料，並透過已事先控制的帳號管理存取或已配置的 Meta 回呼線索核實請求權限。僅收到一封電子郵件不會自動觸發刪除。核實後，營運者會先停用相關連線，再以授權的管理流程移除核實對應的資料，並以電子郵件人工說明已處理的資料類別及仍可能存在的資料或備份；不承諾固定完成時限。</p>
+
+  <h2>連線解除與平台刪除通知</h2>
+  <p>解除 Facebook 連線會停用後續使用並清除有效資料庫中的該連線憑證；解除連線不會自動清除全部帳號、裝置、操作紀錄、本機資料或備份。</p>
+  <p>後端已設定 Facebook 撤銷及資料刪除回呼。經平台簽章與授權帳號對應驗證成功的刪除通知，會清除對應連線、授權憑證、授權嘗試、操作紀錄及受影響工作階段，並留下供回覆查詢用的最少回條資料。若無法確認簽章或帳號對應，不會依通知刪除資料。回呼設定已保存，但 Meta 端到端通知尚未完成實際驗證，因此此處描述的是已實作的處理行為，不代表已驗證平台通知可達或所有資料均會由回呼清除。</p>
+  <p>回呼可能不會一併移除裝置、公鑰、挑戰／註冊資料及最少量的回條或撤銷防重放紀錄。營運者會在人工處理時檢視殘留類別並適用清理。回條的 30 天查詢效期不等於殘留資料或備份會在 30 天內全部實體刪除。</p>
+
+  <h2>本機試用資料</h2>
+  <p>App 提供「刪除本機試用資料」操作，並要求輸入確認文字。此操作範圍限於 <code>~/Library/Application Support/Greet Social Trial</code> 中的試用資料及三個試用專用 Keychain 項目（裝置憑證、待完成註冊金鑰與本機加密金鑰）；清除後，資料夾可能仍保留為空或含鎖定檔案。這不會撤銷後端仍存在的裝置或工作階段；若註冊結果尚未確認，刪除私鑰會失去恢復所需的證據，應先查核。操作結果可能是部分清除；若未完成，刪除待處理標記也可能保留，請依 App 顯示結果確認。</p>
+  <p>本機清除只作用於這台 Mac，不會刪除 Cloudflare 資料、Meta 資料或 GitHub Pages 日誌，也不會代替 Facebook 解除授權或平台內容刪除。若清除未完成，請寄信聯絡營運者並說明 App 顯示的結果；不要自行刪除其他產品或正式 Ai 客服資料。</p>
+
+  <h2>雲端資料、備份及平台內容</h2>
+  <p>Cloudflare D1 Free 的滾動 7 天 Time Travel 備份可能在有效資料庫刪除後保留資料，直至備份到期。試用期間沒有自動清除排程，也沒有對資料庫記錄、平台基礎設施日誌或備份承諾固定的 7、30 或 90 日實體刪除期限。營運者會在試用結束時或收到刪除請求時檢視並人工清理適用資料；刪除與回覆可能受個案核實及服務提供者的備份機制影響。</p>
+  <p>試用不會發布貼文或回覆留言。若您在 Facebook 已有自己的貼文或留言，D.Ai 的資料清除不會刪除它們或您的 Meta 帳號；請使用 Meta 提供的工具管理平台內容與帳號資料。完整處理範圍請見<a href="privacy.html">隱私說明</a>。</p>
+</main>
+<footer><div class="shell">D.Ai｜軍諺整合行銷有限公司 · <a href="mailto:dai@d-ai-studio.com">dai@d-ai-studio.com</a></div></footer>
+</body>
+</html>
