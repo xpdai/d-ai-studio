@@ -1,0 +1,48 @@
+.preview-product .showcase { padding-block: 26px 80px; }
+.preview-product .showcase-back { color: var(--color-accent); }
+.preview-product .showcase-hero { gap: 8%; padding: 44px 0 50px; border-bottom: 2px solid var(--color-ink); }
+.preview-product .showcase-hero h1 { font-size: clamp(54px, 7vw, 90px); font-weight: 700; line-height: 1; letter-spacing: -.055em; }
+.preview-product .showcase-hero h1 small { font-size: .38em; }
+.preview-product .showcase-hero .section-kicker { margin-top: 16px; color: var(--color-accent); font-family: var(--font-outlier); font-size: 11px; letter-spacing: .1em; }
+.preview-product .showcase-hero > p { color: var(--color-muted); font-size: 16px; line-height: 1.85; }
+.preview-product .product-detail { padding-top: 36px; border-top: 0; }
+.preview-product .product-detail > h2 { margin-bottom: 26px; font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.16; letter-spacing: -.05em; }
+.preview-product .greet-tabs { border-top: 2px solid var(--color-ink); }
+.preview-product .greet-tabs button { border-bottom: 1px solid var(--color-rule); }
+.preview-product .greet-tabs button[aria-selected="true"] { border-left: 3px solid var(--color-accent); padding-left: 13px; background: var(--color-accent-soft); }
+.preview-product .greet-panel h3 { font-size: 27px; font-weight: 700; letter-spacing: -.04em; }
+.preview-product .image-expand { border: 2px solid var(--color-ink); border-radius: 0; background: var(--color-plate); box-shadow: 7px 7px 0 var(--color-paper-3); }
+.preview-product .greet-panel-caption { font-size: 11px; }
+.preview-product .greet-panel-caption a { color: var(--color-accent); }
+.preview-product .greet-chat-example { gap: 8%; margin-top: 72px; padding-top: 52px; border-color: var(--color-rule); }
+.preview-product .greet-chat-copy h2 { font-size: clamp(32px, 4.5vw, 54px); font-weight: 700; line-height: 1.18; letter-spacing: -.05em; }
+.preview-product .greet-chat-copy > p:not(.section-kicker) { color: var(--color-muted); font-size: 14px; line-height: 1.85; }
+.preview-product .greet-chat-copy li { border-color: var(--color-rule); }
+.preview-product .greet-chat-phone { border: 2px solid var(--color-ink); border-radius: 0; background: var(--color-plate); box-shadow: 8px 8px 0 var(--color-paper-3); }
+.preview-product .product-setup-note { border-color: var(--color-rule); }
+.preview-product .product-setup-note summary { font-size: 15px; }
+.preview-product .product-contact { margin-top: 42px; padding: 30px; border: 2px solid var(--color-ink); border-radius: 0; background: var(--color-paper-2); box-shadow: 8px 8px 0 var(--color-paper-3); }
+.preview-product .product-contact h3 { font-size: 27px; font-weight: 700; }
+.preview-product .product-contact p { color: var(--color-muted); }
+.preview-product .site-footer { margin-top: 0; }
+
+@media (max-width: 700px) {
+  .preview-product .showcase { padding-block: 14px 54px; }
+  .preview-product .showcase-hero { display: block; padding: 34px 0 30px; }
+  .preview-product .showcase-hero h1 { font-size: 60px; }
+  .preview-product .showcase-hero > p { margin-top: 18px; font-size: 14px; }
+  .preview-product .product-detail { padding-top: 26px; }
+  .preview-product .product-detail > h2 { font-size: 32px; }
+  .preview-product .greet-tour { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .preview-product .greet-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .preview-product .greet-tabs button { min-height: 68px; padding: 10px; border-right: 1px solid var(--color-rule); }
+  .preview-product .greet-tabs button[aria-selected="true"] { border-left: 0; box-shadow: inset 0 -3px 0 var(--color-accent); padding-left: 10px; }
+  .preview-product .greet-tabs strong { font-size: 13px; }
+  .preview-product .greet-tabs span { font-size: 10px; }
+  .preview-product .greet-panel h3 { font-size: 23px; }
+  .preview-product .greet-chat-example { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 48px; padding-top: 34px; }
+  .preview-product .greet-chat-copy h2 { font-size: 34px; }
+  .preview-product .greet-chat-phone { width: min(100%, 340px); margin-inline: auto; }
+  .preview-product .product-contact { align-items: stretch; flex-direction: column; gap: 22px; padding: 20px; }
+  .preview-product .product-contact .line-contact-button { align-self: flex-start; }
+}
